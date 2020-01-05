@@ -1,5 +1,8 @@
+* { margin: 0; padding: 0; }
+
 .App {
   background-color: #f2f2f2;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .App-logo {
@@ -36,3 +39,69 @@
     transform: rotate(360deg);
   }
 }
+
+.search {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.results {
+
+}
+
+.results .thumbnail {
+  max-width: 175px;
+  height: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.results ul {
+
+}
+
+.result-item {
+  display: flex;
+  padding: 20px 0;
+  margin: 10px 0;
+  background-color: #e0e0e0;
+}
+
+.result-item .game-thumbnail {
+  padding: 20px;
+}
+
+.result-item .game-info {
+  padding: 0 20px 0 0;
+}
+
+.result-item .game-description {
+  margin-top: 20px;
+}
+
+.game-details {
+  display: flex;
+}
+
+.game-detail {
+  padding: 0 10px;
+  border-right: 1px solid darkgray;
+}
+
+.game-detail:first-child {
+  padding-left: 0;
+}
+
+.game-detail:last-child {
+  border: none;
+}
+
+.game-details .detail-title {
+  font-weight: 700;
+}
+
+
+/* FORM */

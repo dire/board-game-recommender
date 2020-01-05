@@ -44,19 +44,19 @@ class Search extends React.Component {
       selectedFilters = selectedFilters + '&mechanics=' + filters['mechanic']
     }
 
-    if (filters['min_players']) {
+    if (filters['min_players'].length) {
       selectedFilters = selectedFilters + '&min_players=' + filters['min_players']
     }
 
-    if (filters['max_players']) {
+    if (filters['max_players'].length) {
       selectedFilters = selectedFilters + '&max_players=' + filters['max_players']
     }
 
-    if (filters['min_playtime']) {
+    if (filters['min_playtime'].length) {
       selectedFilters = selectedFilters + '&min_playtime=' + filters['min_playtime']
     }
 
-    if (filters['max_playtime']) {
+    if (filters['max_playtime'].length) {
       selectedFilters = selectedFilters + '&max_playtime=' + filters['max_playtime']
     }
 
@@ -78,14 +78,35 @@ class Search extends React.Component {
       return (
         <div className="search">
           <Filters updateFilters={this.getFilters.bind(this)} filters={this.state.filters} />
-          <ul>
-            {items.map(item => (
-              <li key={item.id}>
-                <h2>{item.name}</h2>
-                <p dangerouslySetInnerHTML={{__html: item.description}}></p>
-              </li>
-            ))}
-          </ul>
+          <div className="results">
+            <ul>
+              {items.map(item => (
+                <li className="result-item" key={item.id}>
+                  <div className="game-thumbnail">
+                    <img className="thumbnail" src={item.thumb_url} alt={item.name} />
+                  </div>
+                  <div className="game-info">
+                    <h2>{item.name}</h2>
+                    <div className="game-details">
+                      <div className="game-detail">
+                        <span className="detail-title">Year:</span> {item.year_published}
+                      </div>
+                      <div className="game-detail">
+                        <span className="detail-title">Min age:</span> {item.min_age}
+                      </div>
+                      <div className="game-detail">
+                        <span className="detail-title">Primary publisher:</span> {item.primary_publisher}
+                      </div>
+                      <div className="game-detail">
+                        <span className="detail-title">Designers:</span> {item.designers.join(', ')}
+                      </div>
+                    </div>
+                    <p className="game-description" dangerouslySetInnerHTML={{__html: item.description}}></p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       );
     }

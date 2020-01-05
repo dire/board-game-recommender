@@ -61,11 +61,11 @@ class Filters extends React.Component {
       return (
         <form className="search-filters">
           <h2>Filters</h2>
-          Mechanic: <Select onChange={this.updateFilters.bind(this)} options={mechanics} filter="mechanic" />
-          Min players: <TextInput onChange={this.updateFilters.bind(this)} filter="min_players" size="4" />
-          Max players: <TextInput onChange={this.updateFilters.bind(this)} filter="max_players" size="4" />
-          Min playtime (minutes): <TextInput onChange={this.updateFilters.bind(this)} filter="min_playtime" size="4" />
-          Max playtime (minutes): <TextInput onChange={this.updateFilters.bind(this)} filter="max_playtime" size="4" />
+          <div className="filter"><Select onChange={this.updateFilters.bind(this)} options={mechanics} filter="mechanic" /></div>
+          <div className="filter">Min players: <TextInput onChange={this.updateFilters.bind(this)} filter="min_players" size="4" /></div>
+          <div className="filter">Max players: <TextInput onChange={this.updateFilters.bind(this)} filter="max_players" size="4" /></div>
+          <div className="filter">Min playtime (minutes): <TextInput onChange={this.updateFilters.bind(this)} filter="min_playtime" size="4" /></div>
+          <div className="filter">Max playtime (minutes): <TextInput onChange={this.updateFilters.bind(this)} filter="max_playtime" size="4" /></div>
         </form>
       )
     }
