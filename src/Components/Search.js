@@ -40,13 +40,29 @@ class Search extends React.Component {
   getFilters(filters) {
     let selectedFilters = ''
 
-    if (filters['mechanic']) {
-      selectedFilters = selectedFilters + 'mechanics=' + filters['mechanic']
+    if (filters['mechanic'].length) {
+      selectedFilters = selectedFilters + '&mechanics=' + filters['mechanic']
+    }
+
+    if (filters['min_players']) {
+      selectedFilters = selectedFilters + '&min_players=' + filters['min_players']
+    }
+
+    if (filters['max_players']) {
+      selectedFilters = selectedFilters + '&max_players=' + filters['max_players']
+    }
+
+    if (filters['min_playtime']) {
+      selectedFilters = selectedFilters + '&min_playtime=' + filters['min_playtime']
+    }
+
+    if (filters['max_playtime']) {
+      selectedFilters = selectedFilters + '&max_playtime=' + filters['max_playtime']
     }
 
     this.setState({
       filters: filters,
-      fetchUrl: 'https://www.boardgameatlas.com/api/search?' + selectedFilters + '&limit=100&client_id=' + config_client_id
+      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100&order_by=popularity' + selectedFilters + '&client_id=' + config.client_id
     }, () => {
       this.getData()
     })

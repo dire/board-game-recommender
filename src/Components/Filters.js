@@ -1,5 +1,6 @@
 import React from 'react'
 import Select from './Select'
+import TextInput from './TextInput'
 import config from '../config.json'
 
 class Filters extends React.Component {
@@ -12,10 +13,10 @@ class Filters extends React.Component {
       selectedMechanics: '',
       filters: {
         'mechanic': [],
-        'minPlayers': [],
-        'maxPlayers': [],
-        'minPlaytime': [],
-        'maxPlaytime': []
+        'min_players': [],
+        'max_players': [],
+        'min_playtime': [],
+        'max_playtime': []
       }
     };
   }
@@ -32,7 +33,7 @@ class Filters extends React.Component {
   };
 
   componentDidMount() {
-    fetch("https://www.boardgameatlas.com/api/game/mechanics?client_id" + config.client_id)
+    fetch("https://www.boardgameatlas.com/api/game/mechanics?client_id=" + config.client_id)
       .then(res => res.json())
       .then(
         (result) => {
@@ -60,7 +61,11 @@ class Filters extends React.Component {
       return (
         <form className="search-filters">
           <h2>Filters</h2>
-          <Select onChange={this.updateFilters.bind(this)} options={mechanics} filter="mechanic" />
+          Mechanic: <Select onChange={this.updateFilters.bind(this)} options={mechanics} filter="mechanic" />
+          Min players: <TextInput onChange={this.updateFilters.bind(this)} filter="min_players" size="4" />
+          Max players: <TextInput onChange={this.updateFilters.bind(this)} filter="max_players" size="4" />
+          Min playtime (minutes): <TextInput onChange={this.updateFilters.bind(this)} filter="min_playtime" size="4" />
+          Max playtime (minutes): <TextInput onChange={this.updateFilters.bind(this)} filter="max_playtime" size="4" />
         </form>
       )
     }
