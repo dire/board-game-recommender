@@ -1,6 +1,6 @@
 import React from 'react'
 import Select from './Select'
-import TextInput from './TextInput'
+import TextField from './TextInput'
 import config from '../config.json'
 
 class Filters extends React.Component {
@@ -27,9 +27,9 @@ class Filters extends React.Component {
 
     this.setState({
       filters: newFilters
+    }, () => {
+      this.props.updateFilters(this.state.filters)
     })
-
-    this.props.updateFilters(this.state.filters)
   };
 
   componentDidMount() {
@@ -61,11 +61,11 @@ class Filters extends React.Component {
       return (
         <form className="search-filters">
           <h2>Filters</h2>
-          <div className="filter"><Select onChange={this.updateFilters.bind(this)} options={mechanics} filter="mechanic" /></div>
-          <div className="filter">Min players: <TextInput onChange={this.updateFilters.bind(this)} filter="min_players" size="4" /></div>
-          <div className="filter">Max players: <TextInput onChange={this.updateFilters.bind(this)} filter="max_players" size="4" /></div>
-          <div className="filter">Min playtime (minutes): <TextInput onChange={this.updateFilters.bind(this)} filter="min_playtime" size="4" /></div>
-          <div className="filter">Max playtime (minutes): <TextInput onChange={this.updateFilters.bind(this)} filter="max_playtime" size="4" /></div>
+          <div className="filter"><Select onChange={this.updateFilters.bind(this)} options={mechanics} filter="mechanic" default="Choose mechanic" /></div>
+          <div className="filter">Min players: <TextField onChange={this.updateFilters.bind(this)} filter="min_players" size="4" /></div>
+          <div className="filter">Max players: <TextField onChange={this.updateFilters.bind(this)} filter="max_players" size="4" /></div>
+          <div className="filter">Min playtime (minutes): <TextField onChange={this.updateFilters.bind(this)} filter="min_playtime" size="4" /></div>
+          <div className="filter">Max playtime (minutes): <TextField onChange={this.updateFilters.bind(this)} filter="max_playtime" size="4" /></div>
         </form>
       )
     }

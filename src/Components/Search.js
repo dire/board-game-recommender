@@ -1,5 +1,6 @@
 import React from 'react'
 import Filters from './Filters'
+import Sorting from './Sorting'
 import config from '../config.json'
 
 class Search extends React.Component {
@@ -10,7 +11,9 @@ class Search extends React.Component {
       isLoaded: false,
       items: [],
       filters: [],
-      fetchUrl: 'https://www.boardgameatlas.com/api/search?client_id=' + config.client_id
+      fetchUrl: 'https://www.boardgameatlas.com/api/search?client_id=' + config.client_id,
+      order_by: 'popularity',
+      selectedFilters: ''
     };
   }
   
@@ -39,6 +42,11 @@ class Search extends React.Component {
 
   getFilters(filters) {
     let selectedFilters = ''
+    let isAscending = false
+
+    if (this.state.order_by === 'name') {
+      isAscending = true
+    }
 
     if (filters['mechanic'].length) {
       selectedFilters = selectedFilters + '&mechanics=' + filters['mechanic']
@@ -62,11 +70,27 @@ class Search extends React.Component {
 
     this.setState({
       filters: filters,
-      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100&order_by=popularity' + selectedFilters + '&client_id=' + config.client_id
+      selectedFilters: selectedFilters,
+      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + selectedFilters + '&client_id=' + config.client_id + '&order_by=' + this.state.order_by + '&ascending' + isAscending
     }, () => {
       this.getData()
     })
   };
+
+  sortBy(newSortBy) {
+    let isAscending = false
+
+    if (newSortBy === 'name') {
+      isAscending = true
+    }
+
+    this.setState({
+      order_by: newSortBy,
+      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + this.state.selectedFilters + '&client_id=' + config.client_id + '&order_by=' + newSortBy + '&ascending=' + isAscending
+    }, () => {
+      this.getData()
+    })
+  }
 
   render() {
     const { error, isLoaded, items } = this.state
@@ -77,7 +101,8 @@ class Search extends React.Component {
     } else {
       return (
         <div className="search">
-          <Filters updateFilters={this.getFilters.bind(this)} filters={this.state.filters} />
+          <Filters updateFilters={this.getFilters.bind(this)} />
+          <Sorting updateSort={this.sortBy.bind(this)} />
           <div className="results">
             <ul>
               {items.map(item => (
@@ -99,6 +124,9 @@ class Search extends React.Component {
                       </div>
                       <div className="game-detail">
                         <span className="detail-title">Designers:</span> {item.designers.join(', ')}
+                      </div>
+                      <div className="game-detail">
+                        <span className="detail-title">Playtime:</span> {item.min_playtime} - {item.max_playtime} min
                       </div>
                     </div>
                     <p className="game-description" dangerouslySetInnerHTML={{__html: item.description}}></p>

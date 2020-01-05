@@ -15,7 +15,7 @@ class Select extends React.Component {
   render () {
     return (
       <select onChange={this.onChange.bind(this)} ref={this.props.filter}>
-        <option>Select {this.props.filter}</option>
+        <option>{this.props.default}</option>
         {this.props.options.map(item => (
           <option value={item.id} key={item.id}>
             {item.name}
