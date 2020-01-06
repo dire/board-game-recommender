@@ -4,6 +4,7 @@ This app recommends board games based on user preferences and sorts them with ma
 ## TODO:
 - [x] Add min/max players filter(s)
 - [x] Add min/max play time filter(s)
-- [ ] Add sorting
+- [x] Add sorting
+- [ ] Add more sorting options
 - [ ] Make it prettier
 - [ ] ...
