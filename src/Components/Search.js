@@ -77,11 +77,13 @@ class Search extends React.Component {
     })
   };
 
-  sortBy(newSortBy) {
-    let isAscending = false
+  sortBy(newSortBy, sortOrder) {
+    let isAscending = true
 
-    if (newSortBy === 'name') {
+    if (sortOrder === "ascending") {
       isAscending = true
+    } else {
+      isAscending = false
     }
 
     this.setState({
