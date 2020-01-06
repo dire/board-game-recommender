@@ -14,6 +14,10 @@ class Sorting extends React.Component {
         {
           "id": "name",
           "name": "name"
+        },
+        {
+          "id": "year_published",
+          "name": "year_published"
         }
       ]
     };

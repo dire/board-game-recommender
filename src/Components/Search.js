@@ -128,6 +128,9 @@ class Search extends React.Component {
                       <div className="game-detail">
                         <span className="detail-title">Playtime:</span> {item.min_playtime} - {item.max_playtime} min
                       </div>
+                      <div className="game-detail">
+                        <span className="detail-title">Min age:</span> {item.min_age}
+                      </div>
                     </div>
                     <p className="game-description" dangerouslySetInnerHTML={{__html: item.description}}></p>
                   </div>
