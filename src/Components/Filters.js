@@ -2,6 +2,7 @@ import React from 'react'
 import Select from './Select'
 import TextField from './TextInput'
 import config from '../config.json'
+import SelectYear from './SelectYear'
 
 class Filters extends React.Component {
   constructor(props) {
@@ -66,6 +67,7 @@ class Filters extends React.Component {
           <div className="filter">Max players: <TextField onChange={this.updateFilters.bind(this)} filter="max_players" size="4" /></div>
           <div className="filter">Min playtime (minutes): <TextField onChange={this.updateFilters.bind(this)} filter="min_playtime" size="4" /></div>
           <div className="filter">Max playtime (minutes): <TextField onChange={this.updateFilters.bind(this)} filter="max_playtime" size="4" /></div>
+          <div className="filter">Release year: <SelectYear /></div>
         </form>
       )
     }
