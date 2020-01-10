@@ -52,20 +52,12 @@ class Search extends React.Component {
       selectedFilters = selectedFilters + '&mechanics=' + filters['mechanic']
     }
 
-    if (filters['gt_year_published'].length > 0) {
-      selectedFilters = selectedFilters + '&gt_year_published=' + filters['gt_year_published']
+    if (filters['gt_min_playtime'] !== null) {
+      selectedFilters = selectedFilters + '&gt_min_playtime=' + filters['gt_min_playtime']
     }
 
-    if (filters['lt_year_published'].length > 0) {
-      selectedFilters = selectedFilters + '&lt_year_published=' + filters['lt_year_published']
-    } 
-
-    if (filters['min_playtime'].length > 0) {
-      selectedFilters = selectedFilters + '&min_playtime=' + filters['min_playtime']
-    }
-
-    if (filters['max_playtime'].length > 0) {
-      selectedFilters = selectedFilters + '&max_playtime=' + filters['max_playtime']
+    if (filters['lt_max_playtime'] !== null) {
+      selectedFilters = selectedFilters + '&lt_max_playtime=' + filters['lt_max_playtime']
     }
 
     if (filters['min_players'] !== null) {
@@ -136,6 +128,9 @@ class Search extends React.Component {
                     <div className="game-details">
                       <div className="game-detail">
                         <span className="detail-title">Year:</span> {item.year_published}
+                      </div>
+                      <div className="game-detail">
+                        <span className="detail-title">Players:</span> {item.min_players} - {item.max_players}
                       </div>
                       <div className="game-detail">
                         <span className="detail-title">Min age:</span> {item.min_age}

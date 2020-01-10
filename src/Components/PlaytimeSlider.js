@@ -12,13 +12,13 @@ function valuetext(value) {
   return `${value}`
 }
 
-export default function SelectPlayerCount(props) {
+export default function PlaytimeSlider(props) {
   const classes = useStyles()
-  const [value, setValue] = React.useState([1, 4]);
+  const [value, setValue] = React.useState([0, 300]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    props.handleChange('player-range', newValue)
+    props.handleChange('playtime-range', newValue)
   };
 
   return (
@@ -27,10 +27,10 @@ export default function SelectPlayerCount(props) {
         value={value}
         onChange={handleChange}
         valueLabelDisplay="on"
-        aria-labelledby="player-range"
+        aria-labelledby="playtime-range"
         getAriaValueText={valuetext}
-        min={1}
-        max={100}
+        min={0}
+        max={300}
       />
     </div>
   );

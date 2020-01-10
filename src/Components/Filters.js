@@ -1,9 +1,9 @@
 import React from 'react'
 import Select from './Select'
-import TextField from './TextInput'
 import config from '../config.json'
 import SelectYear from './SelectYear'
 import SelectPlayerCount from './SelectPlayerCount'
+import PlaytimeSlider from './PlaytimeSlider'
 import Button from '@material-ui/core/Button';
 
 class Filters extends React.Component {
@@ -16,12 +16,12 @@ class Filters extends React.Component {
       selectedMechanics: '',
       filters: {
         'mechanic': [],
-        'min_players': [],
-        'max_players': [],
-        'min_playtime': [],
-        'max_playtime': [],
-        'gt_year_published' : [],
-        'lt_year_published' : []
+        'min_players': [1],
+        'max_players': [4],
+        'gt_min_playtime': [0],
+        'lt_max_playtime': [300],
+        'gt_year_published' : [2000],
+        'lt_year_published' : [2020]
       }
     };
   }
@@ -34,6 +34,9 @@ class Filters extends React.Component {
     } else if(filter ==='player-range') {
       newFilters['min_players'] = newValue[0]
       newFilters['max_players'] = newValue[1]
+    } else if(filter ==='playtime-range') {
+      newFilters['gt_min_playtime'] = newValue[0] - 1
+      newFilters['lt_max_playtime'] = newValue[1] + 1
     } else {
       newFilters[filter] = newValue
     }
@@ -78,8 +81,7 @@ class Filters extends React.Component {
           <h2>Filters</h2>
           <div className="filter"><Select onChange={this.updateFilters.bind(this)} options={mechanics} filter="mechanic" default="Choose mechanic" /></div>
           <div className="filter">Players: <SelectPlayerCount handleChange={this.updateFilters.bind(this)} /></div>
-          <div className="filter">Min playtime (minutes): <TextField onChange={this.updateFilters.bind(this)} filter="min_playtime" size="4" /></div>
-          <div className="filter">Max playtime (minutes): <TextField onChange={this.updateFilters.bind(this)} filter="max_playtime" size="4" /></div>
+          <div className="filter">Playtime: <PlaytimeSlider handleChange={this.updateFilters.bind(this)} /></div>
           <div className="filter">Release year: <SelectYear handleChange={this.updateFilters.bind(this)} /></div>
           <Button variant="contained" color="primary" onClick={this.submitFilters.bind(this)}>Submit</Button>
         </form>
