@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
 import Search from './Components/Search';
+import Container from '@material-ui/core/Container';
 
 function App() {
   return (
     <div>
-      <Search />
+      <Container maxWidth="lg">
+        <Search />
+      </Container>
     </div>
   );
 }

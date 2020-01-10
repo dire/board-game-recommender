@@ -7,8 +7,6 @@ body {
 }
 
 main {
-  padding: 50px;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -52,7 +50,6 @@ ul {
   display: flex;
   padding: 20px 0;
   margin: 10px 0;
-  background-color: #e0e0e0;
 }
 
 .result-item .game-thumbnail {
