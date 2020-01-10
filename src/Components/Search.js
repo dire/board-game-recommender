@@ -133,9 +133,6 @@ class Search extends React.Component {
                         <span className="detail-title">Players:</span> {item.min_players} - {item.max_players}
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Min age:</span> {item.min_age}
-                      </div>
-                      <div className="game-detail">
                         <span className="detail-title">Primary publisher:</span> {item.primary_publisher}
                       </div>
                       <div className="game-detail">
