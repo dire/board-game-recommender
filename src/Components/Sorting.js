@@ -18,7 +18,7 @@ class Sorting extends React.Component {
         },
         {
           "id": "year_published",
-          "name": "year_published"
+          "name": "year published"
         }
       ],
       sortOrderOptions: [

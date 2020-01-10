@@ -1,14 +1,30 @@
 * { margin: 0; padding: 0; }
 
-.App {
-  background-color: #f2f2f2;
+body {
   font-family: 'Source Sans Pro', sans-serif;
+  background-color: #f2f2f2;
+  font-size: 100%;
+}
+
+main {
+  padding: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.system-message {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  padding: 25px;
+  text-align: center;
+  background: darkgray;
+  color: white;
 }
 
 .search {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 50px;
+
 }
 
 .results {
@@ -68,5 +84,8 @@ ul {
   font-weight: 700;
 }
 
-
-/* FORM */
+/* TYPOGRAPHY */
+h1 {
+  text-align: center;
+  font-size: 2.2em;
+}

@@ -97,9 +97,9 @@ class Search extends React.Component {
   render() {
     const { error, isLoaded, items } = this.state
     if (error) {
-      return <div>Error: {error.message}</div>
+      return <div className="system-message">Error: {error.message}</div>
     } else if (!isLoaded) {
-      return <div>Fetching games from the shelf...</div>
+      return <div className="system-message">Fetching games from the shelf...</div>
     } else {
       return (
         <div className="search">
