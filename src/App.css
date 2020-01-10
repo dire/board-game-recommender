@@ -31,6 +31,10 @@ main {
 
 }
 
+.filter {
+  padding: 10px 0;
+}
+
 .results .thumbnail {
   max-width: 175px;
   height: auto;

@@ -68,10 +68,18 @@ class Search extends React.Component {
       selectedFilters = selectedFilters + '&max_playtime=' + filters['max_playtime']
     }
 
+    if (filters['gt_year_published'] !== null) {
+      selectedFilters = selectedFilters + '&gt_year_published=' + filters['gt_year_published']
+    }
+
+    if (filters['lt_year_published'] !== null) {
+      selectedFilters = selectedFilters + '&lt_year_published=' + filters['lt_year_published']
+    }
+
     this.setState({
       filters: filters,
       selectedFilters: selectedFilters,
-      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + selectedFilters + '&client_id=' + config.client_id + '&order_by=' + this.state.order_by + '&ascending' + isAscending
+      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + selectedFilters + '&client_id=' + config.client_id + '&order_by=' + this.state.order_by + '&ascending=' + isAscending
     }, () => {
       this.getData()
     })

@@ -17,14 +17,21 @@ class Filters extends React.Component {
         'min_players': [],
         'max_players': [],
         'min_playtime': [],
-        'max_playtime': []
+        'max_playtime': [],
+        'gt_year_published' : [],
+        'lt_year_published' : []
       }
     };
   }
 
   updateFilters(filter, newValue) {
     const newFilters = this.state.filters
-    newFilters[filter] = newValue
+    if (filter === 'year-range') {
+      newFilters['gt_year_published'] = newValue[0]
+      newFilters['lt_year_published'] = newValue[1]
+    } else {
+      newFilters[filter] = newValue
+    }
 
     this.setState({
       filters: newFilters
@@ -67,7 +74,7 @@ class Filters extends React.Component {
           <div className="filter">Max players: <TextField onChange={this.updateFilters.bind(this)} filter="max_players" size="4" /></div>
           <div className="filter">Min playtime (minutes): <TextField onChange={this.updateFilters.bind(this)} filter="min_playtime" size="4" /></div>
           <div className="filter">Max playtime (minutes): <TextField onChange={this.updateFilters.bind(this)} filter="max_playtime" size="4" /></div>
-          <div className="filter">Release year: <SelectYear /></div>
+          <div className="filter">Release year: <SelectYear handleChange={this.updateFilters.bind(this)} /></div>
         </form>
       )
     }

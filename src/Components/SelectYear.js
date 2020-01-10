@@ -12,7 +12,7 @@ function valuetext(value) {
   return `${value}`
 }
 
-export default function SelectYear() {
+export default function SelectYear(props) {
   const classes = useStyles()
   let date = new Date()
   let year = date.getFullYear()
@@ -20,6 +20,7 @@ export default function SelectYear() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    props.handleChange('year-range', newValue)
   };
 
   return (
