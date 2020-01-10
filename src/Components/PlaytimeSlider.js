@@ -69,7 +69,7 @@ export default function PlaytimeSlider(props) {
       <Slider
         value={value}
         onChange={handleChange}
-        valueLabelDisplay="on"
+        valueLabelDisplay="auto"
         aria-labelledby="playtime-range"
         getAriaValueText={valuetext}
         min={0}

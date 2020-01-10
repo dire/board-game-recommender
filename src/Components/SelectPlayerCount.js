@@ -61,7 +61,7 @@ export default function SelectPlayerCount(props) {
       <Slider
         value={value}
         onChange={handleChange}
-        valueLabelDisplay="on"
+        valueLabelDisplay="auto"
         aria-labelledby="player-range"
         getAriaValueText={valuetext}
         min={1}
