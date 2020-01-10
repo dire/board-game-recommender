@@ -3,6 +3,8 @@ import Select from './Select'
 import TextField from './TextInput'
 import config from '../config.json'
 import SelectYear from './SelectYear'
+import SelectPlayerCount from './SelectPlayerCount'
+import Button from '@material-ui/core/Button';
 
 class Filters extends React.Component {
   constructor(props) {
@@ -27,18 +29,23 @@ class Filters extends React.Component {
   updateFilters(filter, newValue) {
     const newFilters = this.state.filters
     if (filter === 'year-range') {
-      newFilters['gt_year_published'] = newValue[0]
-      newFilters['lt_year_published'] = newValue[1]
+      newFilters['gt_year_published'] = newValue[0] - 1
+      newFilters['lt_year_published'] = newValue[1] + 1
+    } else if(filter ==='player-range') {
+      newFilters['min_players'] = newValue[0]
+      newFilters['max_players'] = newValue[1]
     } else {
       newFilters[filter] = newValue
     }
 
     this.setState({
       filters: newFilters
-    }, () => {
-      this.props.updateFilters(this.state.filters)
     })
   };
+
+  submitFilters() {
+    this.props.submitFilters(this.state.filters)
+  }
 
   componentDidMount() {
     fetch("https://www.boardgameatlas.com/api/game/mechanics?client_id=" + config.client_id)
@@ -70,11 +77,11 @@ class Filters extends React.Component {
         <form className="search-filters">
           <h2>Filters</h2>
           <div className="filter"><Select onChange={this.updateFilters.bind(this)} options={mechanics} filter="mechanic" default="Choose mechanic" /></div>
-          <div className="filter">Min players: <TextField onChange={this.updateFilters.bind(this)} filter="min_players" size="4" /></div>
-          <div className="filter">Max players: <TextField onChange={this.updateFilters.bind(this)} filter="max_players" size="4" /></div>
+          <div className="filter">Players: <SelectPlayerCount handleChange={this.updateFilters.bind(this)} /></div>
           <div className="filter">Min playtime (minutes): <TextField onChange={this.updateFilters.bind(this)} filter="min_playtime" size="4" /></div>
           <div className="filter">Max playtime (minutes): <TextField onChange={this.updateFilters.bind(this)} filter="max_playtime" size="4" /></div>
           <div className="filter">Release year: <SelectYear handleChange={this.updateFilters.bind(this)} /></div>
+          <Button variant="contained" color="primary" onClick={this.submitFilters.bind(this)}>Submit</Button>
         </form>
       )
     }

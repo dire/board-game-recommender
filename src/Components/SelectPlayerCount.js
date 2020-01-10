@@ -12,15 +12,13 @@ function valuetext(value) {
   return `${value}`
 }
 
-export default function SelectYear(props) {
+export default function SelectPlayerCount(props) {
   const classes = useStyles()
-  let date = new Date()
-  let year = date.getFullYear()
-  const [value, setValue] = React.useState([2000, year]);
+  const [value, setValue] = React.useState([1, 100]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    props.handleChange('year-range', newValue)
+    props.handleChange('player-range', newValue)
   };
 
   return (
@@ -29,10 +27,10 @@ export default function SelectYear(props) {
         value={value}
         onChange={handleChange}
         valueLabelDisplay="on"
-        aria-labelledby="year-range"
+        aria-labelledby="player-range"
         getAriaValueText={valuetext}
-        min={1980}
-        max={year}
+        min={1}
+        max={100}
       />
     </div>
   );

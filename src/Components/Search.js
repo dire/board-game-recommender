@@ -48,24 +48,32 @@ class Search extends React.Component {
       isAscending = true
     }
 
-    if (filters['mechanic'].length) {
+    if (filters['mechanic'].length > 0) {
       selectedFilters = selectedFilters + '&mechanics=' + filters['mechanic']
     }
 
-    if (filters['min_players'].length) {
-      selectedFilters = selectedFilters + '&min_players=' + filters['min_players']
+    if (filters['gt_year_published'].length > 0) {
+      selectedFilters = selectedFilters + '&gt_year_published=' + filters['gt_year_published']
     }
 
-    if (filters['max_players'].length) {
-      selectedFilters = selectedFilters + '&max_players=' + filters['max_players']
-    }
+    if (filters['lt_year_published'].length > 0) {
+      selectedFilters = selectedFilters + '&lt_year_published=' + filters['lt_year_published']
+    } 
 
-    if (filters['min_playtime'].length) {
+    if (filters['min_playtime'].length > 0) {
       selectedFilters = selectedFilters + '&min_playtime=' + filters['min_playtime']
     }
 
-    if (filters['max_playtime'].length) {
+    if (filters['max_playtime'].length > 0) {
       selectedFilters = selectedFilters + '&max_playtime=' + filters['max_playtime']
+    }
+
+    if (filters['min_players'] !== null) {
+      selectedFilters = selectedFilters + '&min_players=' + filters['min_players']
+    }
+
+    if (filters['max_players'] !== null) {
+      selectedFilters = selectedFilters + '&max_players=' + filters['max_players']
     }
 
     if (filters['gt_year_published'] !== null) {
@@ -75,6 +83,9 @@ class Search extends React.Component {
     if (filters['lt_year_published'] !== null) {
       selectedFilters = selectedFilters + '&lt_year_published=' + filters['lt_year_published']
     }
+
+    console.log(filters)
+    console.log(selectedFilters)
 
     this.setState({
       filters: filters,
@@ -111,7 +122,7 @@ class Search extends React.Component {
     } else {
       return (
         <div className="search">
-          <Filters updateFilters={this.getFilters.bind(this)} />
+          <Filters submitFilters={this.getFilters.bind(this)} />
           <Sorting updateSort={this.sortBy.bind(this)} />
           <div className="results">
             <ul>
