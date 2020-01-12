@@ -127,6 +127,9 @@ class Search extends React.Component {
                     <h2>{item.name}</h2>
                     <div className="game-details">
                       <div className="game-detail">
+                        <span className="detail-title">MSRP:</span> ${item.msrp}
+                      </div>
+                      <div className="game-detail">
                         <span className="detail-title">Year:</span> {item.year_published}
                       </div>
                       <div className="game-detail">

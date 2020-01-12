@@ -21,8 +21,8 @@ main {
   color: white;
 }
 
-.search {
-
+.search-filters {
+  margin-bottom: 50px;
 }
 
 .results {
@@ -31,6 +31,10 @@ main {
 
 .filter {
   padding: 10px 0;
+}
+
+.sorting {
+  text-align: right;
 }
 
 .results .thumbnail {
@@ -66,23 +70,19 @@ ul {
 
 .game-details {
   display: flex;
+  flex-wrap: wrap;
+  background-color: gainsboro;
+  padding: 10px 20px 10px 0;
 }
 
 .game-detail {
-  padding: 0 10px;
-  border-right: 1px solid darkgray;
-}
-
-.game-detail:first-child {
-  padding-left: 0;
-}
-
-.game-detail:last-child {
-  border: none;
+  padding: 0 20px;
+  border-right: 1px solid black;
 }
 
 .game-details .detail-title {
   font-weight: 700;
+  display: block;
 }
 
 /* TYPOGRAPHY */
