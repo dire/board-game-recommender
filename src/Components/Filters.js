@@ -1,10 +1,10 @@
 import React from 'react'
-import Select from './Select'
 import config from '../config.json'
 import SelectYear from './YearSlider'
 import SelectPlayerCount from './SelectPlayerCount'
 import PlaytimeSlider from './PlaytimeSlider'
-import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button'
+import MechanicSelect from './MechanicSelect'
 
 class Filters extends React.Component {
   constructor(props) {
@@ -59,6 +59,7 @@ class Filters extends React.Component {
             isLoaded: true,
             mechanics: result.mechanics
           });
+          console.log(result.mechanics)
         },
         (error) => {
           this.setState({
@@ -79,7 +80,7 @@ class Filters extends React.Component {
       return (
         <form className="search-filters">
           <h2>Filters</h2>
-          <div className="filter"><Select onChange={this.updateFilters.bind(this)} options={mechanics} filter="mechanic" default="Choose mechanic" /></div>
+          <div className="filter"><MechanicSelect handleChange={this.updateFilters.bind(this)} options={mechanics} /></div>
           <div className="filter">Players: <SelectPlayerCount handleChange={this.updateFilters.bind(this)} /></div>
           <div className="filter">Playtime: <PlaytimeSlider handleChange={this.updateFilters.bind(this)} /></div>
           <div className="filter">Release year: <SelectYear handleChange={this.updateFilters.bind(this)} /></div>
