@@ -82,11 +82,11 @@ ul {
   background-color: gainsboro;
   margin-top: 20px;
   padding: 10px 20px 10px 0;
+  border-radius: 4px;
 }
 
 .game-detail {
-  padding: 0 20px;
-  border-right: 1px solid black;
+  padding: 10px 20px;
 }
 
 .game-details .detail-title {

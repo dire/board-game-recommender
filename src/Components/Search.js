@@ -2,6 +2,7 @@ import React from 'react'
 import Filters from './Filters'
 import Sorting from './Sorting'
 import config from '../config.json'
+import Link from '@material-ui/core/Link';
 
 class Search extends React.Component {
   constructor(props) {
@@ -146,6 +147,13 @@ class Search extends React.Component {
                       </div>
                       <div className="game-detail">
                         <span className="detail-title">Min age:</span> {item.min_age}
+                      </div>
+                      <div className="game-detail">
+                        <span className="detail-title">
+                          <Link href={item.url} target="_blank">
+                            BGA Link
+                          </Link>
+                        </span>
                       </div>
                     </div>
                     <p className="game-description" dangerouslySetInnerHTML={{__html: item.description}}></p>
