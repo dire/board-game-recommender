@@ -59,7 +59,6 @@ class Filters extends React.Component {
             isLoaded: true,
             mechanics: result.mechanics
           });
-          console.log(result.mechanics)
         },
         (error) => {
           this.setState({

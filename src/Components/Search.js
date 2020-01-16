@@ -118,13 +118,13 @@ class Search extends React.Component {
           <Sorting updateSort={this.sortBy.bind(this)} />
           <div className="results">
             <ul>
-              {items.map(item => (
+              {items.map((item, index) => (
                 <li className="result-item" key={item.id}>
                   <div className="game-thumbnail">
                     <img className="thumbnail" src={item.thumb_url} alt={item.name} />
                   </div>
                   <div className="game-info">
-                    <h2>{item.name}</h2>
+                    <span className="result-number">#{index + 1}</span><h2 className="game-title">{item.name}</h2>
                     <div className="game-details">
                       <div className="game-detail">
                         <span className="detail-title">MSRP:</span> ${item.msrp}

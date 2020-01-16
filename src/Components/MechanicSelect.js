@@ -33,10 +33,11 @@ const MenuProps = {
 export default function MechanicSelect (props) {
   const options = props.options
   const classes = useStyles();
-  const [mechanicName, setMechanicName] = React.useState([]);
+  const [mechanicId, setMechanicId] = React.useState([]);
+  //const [mechanicNames, setMechanicNames] = React.useState([]);
 
   const handleChange = event => {
-    setMechanicName(event.target.value);
+    setMechanicId(event.target.value);
     props.handleChange('mechanic', event.target.value)
   };
 
@@ -48,7 +49,7 @@ export default function MechanicSelect (props) {
           labelId="mechanic-select-label"
           id="mechanic-select"
           multiple
-          value={mechanicName}
+          value={mechanicId}
           onChange={handleChange}
           input={<Input />}
           renderValue={selected => selected.join(', ')}
@@ -56,7 +57,7 @@ export default function MechanicSelect (props) {
         >
           {options.map(mechanic => (
             <MenuItem key={mechanic.id} value={mechanic.id}>
-              <Checkbox checked={mechanicName.indexOf(mechanic.id) > -1} />
+              <Checkbox checked={mechanicId.indexOf(mechanic.id) > -1} />
               <ListItemText primary={mechanic.name} />
             </MenuItem>
           ))}
