@@ -50,7 +50,7 @@ export default function Sorting (props) {
 
   const updateSort = event => {
     setSortBy(event.target.value)
-    props.updateSort(sort_by)
+    props.updateSort('sortBy', event.target.value)
   }
 
   return (

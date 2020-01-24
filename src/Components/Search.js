@@ -1,7 +1,5 @@
 import React from 'react'
 import Filters from './Filters'
-import Sorting from './Sorting'
-import OrderSwitch from './OrderSwitch'
 import config from '../config.json'
 import Link from '@material-ui/core/Link'
 
@@ -14,9 +12,7 @@ class Search extends React.Component {
       items: [],
       filters: [],
       fetchUrl: 'https://www.boardgameatlas.com/api/search?client_id=' + config.client_id,
-      order_by: 'popularity',
       selectedFilters: '',
-      ascending: '',
     };
   }
   
@@ -74,32 +70,22 @@ class Search extends React.Component {
       selectedFilters = selectedFilters + '&lt_year_published=' + filters['lt_year_published']
     }
 
+    if (filters['sortBy'] !== null) {
+      selectedFilters = selectedFilters + '&order_by=' + filters['sortBy']
+    }
+
+    if (filters['ascending'] !== null) {
+      selectedFilters = selectedFilters + '&ascending=' + filters['ascending']
+    }
+
     this.setState({
       filters: filters,
       selectedFilters: selectedFilters,
-      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + selectedFilters + '&client_id=' + config.client_id + '&order_by=' + this.state.order_by + '&ascending=' + this.state.ascending
+      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + selectedFilters + '&client_id=' + config.client_id
     }, () => {
       this.getData()
     })
   };
-
-  sortBy(newSortBy) {
-    this.setState({
-      order_by: newSortBy,
-      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + this.state.selectedFilters + '&client_id=' + config.client_id + '&order_by=' + newSortBy + '&ascending=' + this.state.ascending
-    }, () => {
-      this.getData()
-    })
-  }
-
-  changeOrder(ascendingNewValue) {
-    this.setState({
-      ascending: ascendingNewValue,
-      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + this.state.selectedFilters + '&client_id=' + config.client_id + '&order_by=' + this.state.order_by + '&ascending=' + this.state.ascending
-    }, () => {
-      this.getData()
-    })
-  }
 
   render() {
     const { error, isLoaded, items } = this.state
@@ -111,8 +97,7 @@ class Search extends React.Component {
       return (
         <div className="search">
           <Filters submitFilters={this.getFilters.bind(this)} />
-          <Sorting updateSort={this.sortBy.bind(this)} />
-          <OrderSwitch handleChange={this.changeOrder.bind(this)} />
+          {this.state.fetchUrl}
           <div className="results">
             <ul>
               {items.map((item, index) => (

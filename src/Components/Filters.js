@@ -5,6 +5,8 @@ import SelectPlayerCount from './SelectPlayerCount'
 import PlaytimeSlider from './PlaytimeSlider'
 import Button from '@material-ui/core/Button'
 import MechanicSelect from './MechanicSelect'
+import Sorting from './Sorting'
+import OrderSwitch from './OrderSwitch'
 
 class Filters extends React.Component {
   constructor(props) {
@@ -21,8 +23,10 @@ class Filters extends React.Component {
         'gt_min_playtime': [0],
         'lt_max_playtime': [300],
         'gt_year_published' : [2000],
-        'lt_year_published' : [2020]
-      }
+        'lt_year_published' : [2020],
+        'ascending' : 'false',
+        'sortBy' : 'popularity'
+      },
     };
   }
 
@@ -83,6 +87,8 @@ class Filters extends React.Component {
           <div className="filter">Players: <SelectPlayerCount handleChange={this.updateFilters.bind(this)} /></div>
           <div className="filter">Playtime: <PlaytimeSlider handleChange={this.updateFilters.bind(this)} /></div>
           <div className="filter">Release year: <SelectYear handleChange={this.updateFilters.bind(this)} /></div>
+          <Sorting key="sorting" updateSort={this.updateFilters.bind(this)} />
+          <OrderSwitch key="ordering" handleChange={this.updateFilters.bind(this)} />
           <Button variant="contained" color="primary" onClick={this.submitFilters.bind(this)}>Submit</Button>
         </form>
       )

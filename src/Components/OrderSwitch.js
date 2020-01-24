@@ -40,20 +40,18 @@ const AntSwitch = withStyles(theme => ({
 }))(Switch);
 
 export default function OrderSwitch(props) {
-  const [state, setState] = React.useState({
-    ascending: false,
-  });
+  const [state, setState] = React.useState({ascending: false});
 
   const handleChange = name => event => {
     setState({ ...state, [name]: event.target.checked });
-    props.handleChange(state.ascending)
+    props.handleChange('ascending', event.target.checked)
   };
 
   return (
     <FormGroup>
       <Typography component="div">
         <Grid component="label" container alignItems="center" spacing={1}>
-          <Grid item>Ascending</Grid>
+          <Grid item>Descending</Grid>
           <Grid item>
             <AntSwitch
               checked={state.ascending}
@@ -61,7 +59,7 @@ export default function OrderSwitch(props) {
               value="ascending"
             />
           </Grid>
-          <Grid item>Descending</Grid>
+          <Grid item>Ascending</Grid>
         </Grid>
       </Typography>
     </FormGroup>
