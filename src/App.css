@@ -25,12 +25,31 @@ main {
   margin-bottom: 50px;
 }
 
-.results {
+.search-filters fieldset {
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
 
+.search-filters fieldset legend {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.submit-filters {
+  text-align: center;
 }
 
 .filter {
   padding: 10px 0;
+}
+
+.sort-section {
+  border: 1px solid lightgray;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .sorting {

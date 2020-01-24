@@ -82,14 +82,21 @@ class Filters extends React.Component {
     } else {
       return (
         <form className="search-filters">
-          <h2>Filters</h2>
-          <div className="filter"><MechanicSelect handleChange={this.updateFilters.bind(this)} options={mechanics} /></div>
-          <div className="filter">Players: <SelectPlayerCount handleChange={this.updateFilters.bind(this)} /></div>
-          <div className="filter">Playtime: <PlaytimeSlider handleChange={this.updateFilters.bind(this)} /></div>
-          <div className="filter">Release year: <SelectYear handleChange={this.updateFilters.bind(this)} /></div>
-          <Sorting key="sorting" updateSort={this.updateFilters.bind(this)} />
-          <OrderSwitch key="ordering" handleChange={this.updateFilters.bind(this)} />
-          <Button variant="contained" color="primary" onClick={this.submitFilters.bind(this)}>Submit</Button>
+          <fieldset>
+            <legend>Filters:</legend>
+            <div className="filter"><MechanicSelect handleChange={this.updateFilters.bind(this)} options={mechanics} /></div>
+            <div className="filter">Players: <SelectPlayerCount handleChange={this.updateFilters.bind(this)} /></div>
+            <div className="filter">Playtime: <PlaytimeSlider handleChange={this.updateFilters.bind(this)} /></div>
+            <div className="filter">Release year: <SelectYear handleChange={this.updateFilters.bind(this)} /></div>
+          </fieldset>
+          <fieldset>
+            <legend>Sorting:</legend>
+            <Sorting key="sorting" updateSort={this.updateFilters.bind(this)} />
+            <OrderSwitch key="ordering" handleChange={this.updateFilters.bind(this)} />
+          </fieldset>
+          <div className="submit-filters">
+            <Button variant="contained" color="primary" onClick={this.submitFilters.bind(this)}>Submit</Button>
+          </div>
         </form>
       )
     }
