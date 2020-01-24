@@ -97,7 +97,6 @@ class Search extends React.Component {
       return (
         <div className="search">
           <Filters submitFilters={this.getFilters.bind(this)} />
-          {this.state.fetchUrl}
           <div className="results">
             <ul>
               {items.map((item, index) => (
