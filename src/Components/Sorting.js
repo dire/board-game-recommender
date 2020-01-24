@@ -1,66 +1,77 @@
-import React from 'react'
-import Select from './Select'
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import ListItemText from '@material-ui/core/ListItemText';
+import Select from '@material-ui/core/Select';
 
-class Sorting extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      order_by: 'popularity',
-      sort_order: 'descending',
-      sortOptions: [
-        {
-          "id": "popularity",
-          "name": "popularity"
-        },
-        {
-          "id": "name",
-          "name": "name"
-        },
-        {
-          "id": "year_published",
-          "name": "year published"
-        }
-      ],
-      sortOrderOptions: [
-        {
-          "id": "ascending",
-          "name": "ascending"
-        },
-        {
-          "id": "descending",
-          "name": "descending"
-        }
-      ]
-    };
-  }
+const useStyles = makeStyles(theme => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: '100%',
+    maxWidth: '100%',
+  },
+  noLabel: {
+    marginTop: theme.spacing(3),
+  },
+}));
 
-  updateSort(type, sortBy) {
-    if (type === "sort_order") {
-      this.setState({
-        sort_order: sortBy
-      }, () => {
-        this.props.updateSort(this.state.order_by, this.state.sort_order)
-      })
-    } else {
-      this.setState({
-        order_by: sortBy
-      }, () => {
-        this.props.updateSort(this.state.order_by, this.state.sort_order)
-      })
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 10 + ITEM_PADDING_TOP,
+      width: 320,
+    },
+  },
+};
+
+export default function Sorting (props) {
+  const classes = useStyles();
+  const [sort_by, setSortBy] = React.useState('popularity');
+
+  const sortOptions = [
+    {
+      "id": "popularity",
+      "name": "popularity"
+    },
+    {
+      "id": "name",
+      "name": "name"
+    },
+    {
+      "id": "year_published",
+      "name": "year published"
     }
-  };
+  ]
 
-  render () {
-    const { sortOptions, sortOrderOptions } = this.state;
-    return (
-      <div className="sorting">
-        <h2>Sort by</h2>
-        <Select onChange={this.updateSort.bind(this)} options={sortOptions} filter="order_by" default="Sort by" />
-        <Select onChange={this.updateSort.bind(this)} options={sortOrderOptions} filter="sort_order" default="Sort order" />
-      </div>
-    )
+  const updateSort = event => {
+    setSortBy(event.target.value)
+    props.updateSort(sort_by)
   }
 
+  return (
+    <div>
+      <FormControl className={classes.formControl}>
+        <InputLabel id="sort-by-label">Sort by</InputLabel>
+        <Select
+          labelId="sort-by-label"
+          id="mechanic-select"
+          value={sort_by}
+          onChange={updateSort}
+          input={<Input />}
+          MenuProps={MenuProps}
+        >
+          {sortOptions.map(option => (
+            <MenuItem key={option.id} value={option.id}>
+              <ListItemText primary={option.name} />
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </div>
+  );
 }
-
-export default Sorting

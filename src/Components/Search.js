@@ -1,8 +1,9 @@
 import React from 'react'
 import Filters from './Filters'
 import Sorting from './Sorting'
+import OrderSwitch from './OrderSwitch'
 import config from '../config.json'
-import Link from '@material-ui/core/Link';
+import Link from '@material-ui/core/Link'
 
 class Search extends React.Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class Search extends React.Component {
       filters: [],
       fetchUrl: 'https://www.boardgameatlas.com/api/search?client_id=' + config.client_id,
       order_by: 'popularity',
-      selectedFilters: ''
+      selectedFilters: '',
+      ascending: '',
     };
   }
   
@@ -43,11 +45,6 @@ class Search extends React.Component {
 
   getFilters(filters) {
     let selectedFilters = ''
-    let isAscending = false
-
-    if (this.state.order_by === 'name') {
-      isAscending = true
-    }
 
     if (filters['mechanic'].length > 0) {
       selectedFilters = selectedFilters + '&mechanics=' + filters['mechanic']
@@ -77,30 +74,28 @@ class Search extends React.Component {
       selectedFilters = selectedFilters + '&lt_year_published=' + filters['lt_year_published']
     }
 
-    console.log(filters)
-    console.log(selectedFilters)
-
     this.setState({
       filters: filters,
       selectedFilters: selectedFilters,
-      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + selectedFilters + '&client_id=' + config.client_id + '&order_by=' + this.state.order_by + '&ascending=' + isAscending
+      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + selectedFilters + '&client_id=' + config.client_id + '&order_by=' + this.state.order_by + '&ascending=' + this.state.ascending
     }, () => {
       this.getData()
     })
   };
 
-  sortBy(newSortBy, sortOrder) {
-    let isAscending = true
-
-    if (sortOrder === "ascending") {
-      isAscending = true
-    } else {
-      isAscending = false
-    }
-
+  sortBy(newSortBy) {
     this.setState({
       order_by: newSortBy,
-      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + this.state.selectedFilters + '&client_id=' + config.client_id + '&order_by=' + newSortBy + '&ascending=' + isAscending
+      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + this.state.selectedFilters + '&client_id=' + config.client_id + '&order_by=' + newSortBy + '&ascending=' + this.state.ascending
+    }, () => {
+      this.getData()
+    })
+  }
+
+  changeOrder(ascendingNewValue) {
+    this.setState({
+      ascending: ascendingNewValue,
+      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + this.state.selectedFilters + '&client_id=' + config.client_id + '&order_by=' + this.state.order_by + '&ascending=' + this.state.ascending
     }, () => {
       this.getData()
     })
@@ -117,6 +112,7 @@ class Search extends React.Component {
         <div className="search">
           <Filters submitFilters={this.getFilters.bind(this)} />
           <Sorting updateSort={this.sortBy.bind(this)} />
+          <OrderSwitch handleChange={this.changeOrder.bind(this)} />
           <div className="results">
             <ul>
               {items.map((item, index) => (

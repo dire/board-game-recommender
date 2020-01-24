@@ -34,7 +34,6 @@ export default function MechanicSelect (props) {
   const options = props.options
   const classes = useStyles();
   const [mechanicId, setMechanicId] = React.useState([]);
-  //const [mechanicNames, setMechanicNames] = React.useState([]);
 
   const handleChange = event => {
     setMechanicId(event.target.value);
