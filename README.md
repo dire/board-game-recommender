@@ -1,10 +1,13 @@
 # Board Game Recommender
-This app recommends board games based on user preferences and sorts them with magic.
+This app recommends board games based on selected filters.
 
-## TODO:
+## Coming:
 - [x] Add min/max players filter(s)
 - [x] Add min/max play time filter(s)
 - [x] Add sorting
+- [x] User material-ui
 - [ ] Add more sorting options
-- [ ] Make it prettier
+- [x] Make it prettier
+- [ ] Make it even prettier
+- [ ] Search for a random game
 - [ ] ...
