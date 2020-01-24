@@ -7,8 +7,6 @@ body {
 }
 
 main {
-  padding: 50px;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -23,12 +21,39 @@ main {
   color: white;
 }
 
-.search {
-
+.search-filters {
+  margin-bottom: 50px;
 }
 
-.results {
+.search-filters fieldset {
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
 
+.search-filters fieldset legend {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.submit-filters {
+  text-align: center;
+}
+
+.filter {
+  padding: 10px 0;
+}
+
+.sort-section {
+  border: 1px solid lightgray;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.sorting {
+  text-align: right;
 }
 
 .results .thumbnail {
@@ -40,23 +65,30 @@ ul {
   list-style-type: none;
 }
 
-.results ul {
-
-}
-
 .result-item {
   display: flex;
   padding: 20px 0;
   margin: 10px 0;
-  background-color: #e0e0e0;
+  border-bottom: 1px solid darkgray;
+}
+
+.result-number {
+  color: gray;
+  font-size: 1.5em;
+  padding-right: 0.25em;
 }
 
 .result-item .game-thumbnail {
   padding: 20px;
 }
 
+.result-item .game-title {
+  font-size: 1.5em;
+  display: inline;
+}
+
 .result-item .game-info {
-  padding: 0 20px 0 0;
+  padding: 0 20px 20px 0;
 }
 
 .result-item .game-description {
@@ -65,23 +97,20 @@ ul {
 
 .game-details {
   display: flex;
+  flex-wrap: wrap;
+  background-color: gainsboro;
+  margin-top: 20px;
+  padding: 10px 20px 10px 0;
+  border-radius: 4px;
 }
 
 .game-detail {
-  padding: 0 10px;
-  border-right: 1px solid darkgray;
-}
-
-.game-detail:first-child {
-  padding-left: 0;
-}
-
-.game-detail:last-child {
-  border: none;
+  padding: 10px 20px;
 }
 
 .game-details .detail-title {
   font-weight: 700;
+  display: block;
 }
 
 /* TYPOGRAPHY */

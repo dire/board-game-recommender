@@ -1,7 +1,7 @@
 import React from 'react'
 import Filters from './Filters'
-import Sorting from './Sorting'
 import config from '../config.json'
+import Link from '@material-ui/core/Link'
 
 class Search extends React.Component {
   constructor(props) {
@@ -12,8 +12,7 @@ class Search extends React.Component {
       items: [],
       filters: [],
       fetchUrl: 'https://www.boardgameatlas.com/api/search?client_id=' + config.client_id,
-      order_by: 'popularity',
-      selectedFilters: ''
+      selectedFilters: '',
     };
   }
   
@@ -42,57 +41,51 @@ class Search extends React.Component {
 
   getFilters(filters) {
     let selectedFilters = ''
-    let isAscending = false
 
-    if (this.state.order_by === 'name') {
-      isAscending = true
-    }
-
-    if (filters['mechanic'].length) {
+    if (filters['mechanic'].length > 0) {
       selectedFilters = selectedFilters + '&mechanics=' + filters['mechanic']
     }
 
-    if (filters['min_players'].length) {
+    if (filters['gt_min_playtime'] !== null) {
+      selectedFilters = selectedFilters + '&gt_min_playtime=' + filters['gt_min_playtime']
+    }
+
+    if (filters['lt_max_playtime'] !== null) {
+      selectedFilters = selectedFilters + '&lt_max_playtime=' + filters['lt_max_playtime']
+    }
+
+    if (filters['min_players'] !== null) {
       selectedFilters = selectedFilters + '&min_players=' + filters['min_players']
     }
 
-    if (filters['max_players'].length) {
+    if (filters['max_players'] !== null) {
       selectedFilters = selectedFilters + '&max_players=' + filters['max_players']
     }
 
-    if (filters['min_playtime'].length) {
-      selectedFilters = selectedFilters + '&min_playtime=' + filters['min_playtime']
+    if (filters['gt_year_published'] !== null) {
+      selectedFilters = selectedFilters + '&gt_year_published=' + filters['gt_year_published']
     }
 
-    if (filters['max_playtime'].length) {
-      selectedFilters = selectedFilters + '&max_playtime=' + filters['max_playtime']
+    if (filters['lt_year_published'] !== null) {
+      selectedFilters = selectedFilters + '&lt_year_published=' + filters['lt_year_published']
+    }
+
+    if (filters['sortBy'] !== null) {
+      selectedFilters = selectedFilters + '&order_by=' + filters['sortBy']
+    }
+
+    if (filters['ascending'] !== null) {
+      selectedFilters = selectedFilters + '&ascending=' + filters['ascending']
     }
 
     this.setState({
       filters: filters,
       selectedFilters: selectedFilters,
-      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + selectedFilters + '&client_id=' + config.client_id + '&order_by=' + this.state.order_by + '&ascending' + isAscending
+      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + selectedFilters + '&client_id=' + config.client_id
     }, () => {
       this.getData()
     })
   };
-
-  sortBy(newSortBy, sortOrder) {
-    let isAscending = true
-
-    if (sortOrder === "ascending") {
-      isAscending = true
-    } else {
-      isAscending = false
-    }
-
-    this.setState({
-      order_by: newSortBy,
-      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + this.state.selectedFilters + '&client_id=' + config.client_id + '&order_by=' + newSortBy + '&ascending=' + isAscending
-    }, () => {
-      this.getData()
-    })
-  }
 
   render() {
     const { error, isLoaded, items } = this.state
@@ -103,23 +96,25 @@ class Search extends React.Component {
     } else {
       return (
         <div className="search">
-          <Filters updateFilters={this.getFilters.bind(this)} />
-          <Sorting updateSort={this.sortBy.bind(this)} />
+          <Filters submitFilters={this.getFilters.bind(this)} />
           <div className="results">
             <ul>
-              {items.map(item => (
+              {items.map((item, index) => (
                 <li className="result-item" key={item.id}>
                   <div className="game-thumbnail">
                     <img className="thumbnail" src={item.thumb_url} alt={item.name} />
                   </div>
                   <div className="game-info">
-                    <h2>{item.name}</h2>
+                    <span className="result-number">#{index + 1}</span><h2 className="game-title">{item.name}</h2>
                     <div className="game-details">
+                      <div className="game-detail">
+                        <span className="detail-title">MSRP:</span> ${item.msrp}
+                      </div>
                       <div className="game-detail">
                         <span className="detail-title">Year:</span> {item.year_published}
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Min age:</span> {item.min_age}
+                        <span className="detail-title">Players:</span> {item.min_players} - {item.max_players}
                       </div>
                       <div className="game-detail">
                         <span className="detail-title">Primary publisher:</span> {item.primary_publisher}
@@ -132,6 +127,13 @@ class Search extends React.Component {
                       </div>
                       <div className="game-detail">
                         <span className="detail-title">Min age:</span> {item.min_age}
+                      </div>
+                      <div className="game-detail">
+                        <span className="detail-title">
+                          <Link href={item.url} target="_blank">
+                            BGA Link
+                          </Link>
+                        </span>
                       </div>
                     </div>
                     <p className="game-description" dangerouslySetInnerHTML={{__html: item.description}}></p>

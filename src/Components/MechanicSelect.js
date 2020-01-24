@@ -6,6 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -29,45 +30,34 @@ const MenuProps = {
   },
 };
 
-export default function Sorting (props) {
+export default function MechanicSelect (props) {
+  const options = props.options
   const classes = useStyles();
-  const [sort_by, setSortBy] = React.useState('popularity');
+  const [mechanicId, setMechanicId] = React.useState([]);
 
-  const sortOptions = [
-    {
-      "id": "popularity",
-      "name": "popularity"
-    },
-    {
-      "id": "name",
-      "name": "name"
-    },
-    {
-      "id": "year_published",
-      "name": "year published"
-    }
-  ]
-
-  const updateSort = event => {
-    setSortBy(event.target.value)
-    props.updateSort('sortBy', event.target.value)
-  }
+  const handleChange = event => {
+    setMechanicId(event.target.value);
+    props.handleChange('mechanic', event.target.value)
+  };
 
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel id="sort-by-label">Sort by</InputLabel>
+        <InputLabel id="mechanic-select-label">Game Mechanics</InputLabel>
         <Select
-          labelId="sort-by-label"
+          labelId="mechanic-select-label"
           id="mechanic-select"
-          value={sort_by}
-          onChange={updateSort}
+          multiple
+          value={mechanicId}
+          onChange={handleChange}
           input={<Input />}
+          renderValue={selected => selected.join(', ')}
           MenuProps={MenuProps}
         >
-          {sortOptions.map(option => (
-            <MenuItem key={option.id} value={option.id}>
-              <ListItemText primary={option.name} />
+          {options.map(mechanic => (
+            <MenuItem key={mechanic.id} value={mechanic.id}>
+              <Checkbox checked={mechanicId.indexOf(mechanic.id) > -1} />
+              <ListItemText primary={mechanic.name} />
             </MenuItem>
           ))}
         </Select>
