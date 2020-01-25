@@ -95,7 +95,7 @@ class Filters extends React.Component {
             <OrderSwitch key="ordering" handleChange={this.updateFilters.bind(this)} />
           </fieldset>
           <div className="submit-filters">
-            <Button variant="contained" color="primary" onClick={this.submitFilters.bind(this)}>Submit</Button>
+            <Button variant="contained" color="primary" onClick={this.submitFilters.bind(this)}>Search!</Button>
           </div>
         </form>
       )
