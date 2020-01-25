@@ -119,3 +119,28 @@ h1 {
   text-align: center;
   font-size: 2.2em;
 }
+
+footer {
+  padding: 50px  0;
+  text-align: center;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .result-item {
+    flex-direction: column;
+  }
+
+  .game-thumbnail {
+    text-align: center;
+  }
+
+  .game-details {
+    padding: 0;
+  }
+
+  .game-detail {
+    width: calc(50% - 20px);
+    padding: 10px;
+  }
+}
