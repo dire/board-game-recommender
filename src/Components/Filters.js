@@ -83,14 +83,14 @@ class Filters extends React.Component {
       return (
         <form className="search-filters">
           <fieldset>
-            <legend>Filters:</legend>
+            <legend>Filters</legend>
             <div className="filter"><MechanicSelect handleChange={this.updateFilters.bind(this)} options={mechanics} /></div>
             <div className="filter">Players: <SelectPlayerCount handleChange={this.updateFilters.bind(this)} /></div>
             <div className="filter">Playtime: <PlaytimeSlider handleChange={this.updateFilters.bind(this)} /></div>
             <div className="filter">Release year: <SelectYear handleChange={this.updateFilters.bind(this)} /></div>
           </fieldset>
           <fieldset>
-            <legend>Sorting:</legend>
+            <legend>Sorting</legend>
             <Sorting key="sorting" updateSort={this.updateFilters.bind(this)} />
             <OrderSwitch key="ordering" handleChange={this.updateFilters.bind(this)} />
           </fieldset>
