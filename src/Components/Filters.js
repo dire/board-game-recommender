@@ -5,6 +5,7 @@ import SelectPlayerCount from './SelectPlayerCount'
 import PlaytimeSlider from './PlaytimeSlider'
 import Button from '@material-ui/core/Button'
 import MechanicSelect from './MechanicSelect'
+import CategorySelect from './CategorySelect'
 import Sorting from './Sorting'
 import OrderSwitch from './OrderSwitch'
 
@@ -15,9 +16,11 @@ class Filters extends React.Component {
       error: null,
       isLoaded: false,
       mechanics: [],
+      categories: [],
       selectedMechanics: '',
       filters: {
         'mechanic': [],
+        'categories': [],
         'min_players': [1],
         'max_players': [4],
         'gt_min_playtime': [0],
@@ -71,10 +74,26 @@ class Filters extends React.Component {
           });
         }
       )
+    fetch("https://www.boardgameatlas.com/api/game/categories?client_id=" + config.client_id)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          isLoaded: true,
+          categories: result.categories
+        });
+      },
+      (error) => {
+        this.setState({
+          isLoaded: true,
+          error
+        });
+      }
+    )
   }
 
   render () {
-    const { error, isLoaded, mechanics } = this.state;
+    const { error, isLoaded, mechanics, categories } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>
     } else if (!isLoaded) {
@@ -85,6 +104,7 @@ class Filters extends React.Component {
           <fieldset>
             <legend>Filters</legend>
             <div className="filter"><MechanicSelect handleChange={this.updateFilters.bind(this)} options={mechanics} /></div>
+            <div className="filter"><CategorySelect handleChange={this.updateFilters.bind(this)} options={categories} /></div>
             <div className="filter">Players: <SelectPlayerCount handleChange={this.updateFilters.bind(this)} /></div>
             <div className="filter">Playtime: <PlaytimeSlider handleChange={this.updateFilters.bind(this)} /></div>
             <div className="filter">Release year: <SelectYear handleChange={this.updateFilters.bind(this)} /></div>
