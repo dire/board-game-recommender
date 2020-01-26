@@ -3,13 +3,14 @@ import './App.css'
 import Search from './Components/Search'
 import Container from '@material-ui/core/Container'
 import Footer from './Components/Footer'
+import Wizard from './Components/Wizard/Wizard'
 
 function App() {
   return (
     <div>
       <Container maxWidth="lg">
         <h1>Board Game Recommendation Engine Mk.I</h1>
-        <Search />
+        <Wizard />
       </Container>
       <Container maxWidth="lg">
         <Footer />
