@@ -48,6 +48,11 @@ class Search extends React.Component {
       selectedFilters = selectedFilters + '&mechanics=' + filters['mechanic']
     }
 
+    if (filters['categories'].length > 0) {
+      selectedFilters = selectedFilters + '&categories=' + filters['categories']
+    }
+
+
     if (filters['gt_min_playtime'] !== null) {
       selectedFilters = selectedFilters + '&gt_min_playtime=' + filters['gt_min_playtime']
     }
