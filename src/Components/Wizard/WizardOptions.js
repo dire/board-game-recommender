@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonGroup from '@material-ui/core/ButtonGroup';
+import ButtonGroup from '@material-ui/core/ButtonGroup'
 import Button from '@material-ui/core/Button'
 
 class WizardPlayerCount extends React.Component {
@@ -7,7 +7,12 @@ class WizardPlayerCount extends React.Component {
     super(props)
     this.state = {
 
-    };
+    }
+    this.onOptionSelected = this.onOptionSelected.bind(this)
+  }
+
+  onOptionSelected(el) {
+    this.props.onSelect(this.props.step, el.currentTarget.value)
   }
 
   render() {
@@ -15,7 +20,7 @@ class WizardPlayerCount extends React.Component {
       <div>
         <ButtonGroup aria-label="outlined primary button group">
           {this.props.options.map((item) =>
-            <Button variant="contained" color="primary" key={item}>{item}</Button>
+            <Button onClick={this.onOptionSelected} value={item.value} variant="contained" color="primary" key={item.value}>{item.label}</Button>
           )}
         </ButtonGroup>
       </div>

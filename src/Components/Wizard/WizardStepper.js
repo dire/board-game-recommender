@@ -41,6 +41,9 @@ export default function HorizontalLinearStepper() {
   const classes = useStyles()
   const [activeStep, setActiveStep] = React.useState(0)
   const steps = getSteps()
+  const [playerCount, setPlayerCount] = React.useState(0)
+  const [playTime, setPlayTime] = React.useState(0)
+  const [theme, setTheme] = React.useState(0)
 
   const handleNext = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1)
@@ -54,24 +57,69 @@ export default function HorizontalLinearStepper() {
     setActiveStep(0)
   };
 
+  const updatePlayerCount = (label, value) => {
+    setPlayerCount(value)
+  }
+
+  const updatePlayTime = (label, value) => {
+    setPlayTime(value)
+  }
+
+  const updateTheme = (label, value) => {
+    setTheme(value)
+  }
+
   const playerCountOptions = [
-    'solo',
-    'duo',
-    '2-4',
-    '4',
+    {
+      'label': 'Solo',
+      'value': '1'
+    },
+    {
+      'label': 'Duo',
+      'value': '2'
+    },
+    {
+      'label': '2-4',
+      'value': '2-4'
+    },
+    {
+      'label': '4+',
+      'value': '4+'
+    },
   ]
 
   const playTimeOptions = [
-    '30min',
-    'max 1h',
-    'max 2h',
-    'We got all night',
+    {
+      'label': '10min',
+      'value': '10'
+    },
+    {
+      'label': '1 hour',
+      'value': '60'
+    },
+    {
+      'label': '2 hour',
+      'value': '120'
+    },
+    {
+      'label': 'Got all night',
+      'value': '9999'
+    },
   ]
 
   const themeOptions = [
-    'Fantasy',
-    'Horror',
-    'Sci-fi',
+    {
+      'label': 'Fantasy',
+      'value': 'fantasy'
+    },
+    {
+      'label': 'Horror',
+      'value': 'horror'
+    },
+    {
+      'label': 'Sci-fi',
+      'value': 'sci-fi'
+    },
   ]
 
   return (
@@ -102,20 +150,20 @@ export default function HorizontalLinearStepper() {
             <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
             {activeStep === 0 &&
               <div className="step-playercount">
-                <h2>Going solo, duo or with a group?</h2>
-                <WizardOptions options={playerCountOptions} />
+                <h2>Forever alone or got a group?</h2>
+                <WizardOptions step="playerCount" onSelect={updatePlayerCount} options={playerCountOptions} />
               </div>
             }
             {activeStep === 1 &&
               <div className="step-playtime">
                 <h2>A quick round or full gaming night?</h2>
-                <WizardOptions options={playTimeOptions} />
+                <WizardOptions step="playTime" onSelect={updatePlayTime} options={playTimeOptions} />
               </div>
             }
             {activeStep === 2 &&
               <div className="step-theme">
                 <h2>Theme party!</h2>
-                <WizardOptions options={themeOptions} />
+                <WizardOptions step="theme" onSelect={updateTheme} options={themeOptions} />
               </div>
             }
             <div>
