@@ -84,38 +84,38 @@ export default function HorizontalLinearStepper(props) {
   const playerCountOptions = [
     {
       'label': 'Solo',
-      'value': '1'
+      'value': 1
     },
     {
       'label': 'Duo',
-      'value': '2'
+      'value': 2
     },
     {
       'label': '2-4',
-      'value': '3'
+      'value': 3
     },
     {
       'label': '4+',
-      'value': '4'
+      'value': 4
     },
   ]
 
   const playTimeOptions = [
     {
       'label': '10min',
-      'value': '10'
+      'value': 10
     },
     {
       'label': '1 hour',
-      'value': '60'
+      'value': 60
     },
     {
       'label': '2 hour',
-      'value': '120'
+      'value': 120
     },
     {
       'label': 'Got all night',
-      'value': '9999'
+      'value': 9999
     },
   ]
 

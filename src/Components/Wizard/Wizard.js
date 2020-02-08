@@ -7,7 +7,7 @@ class Wizard extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isHidden: false,
+      isActive: true,
       isLoaded: false,
       error: null,
       resultItems: [],
@@ -23,6 +23,7 @@ class Wizard extends React.Component {
 
   getGames (playerCount, playTime, theme) {
     let playerCountParameter = ''
+    let time = parseFloat(playTime) + 1
 
     switch(playerCount) {
       case '1':
@@ -41,7 +42,7 @@ class Wizard extends React.Component {
         playerCountParameter = '&min_players=1'
     }
 
-    fetch("https://www.boardgameatlas.com/api/search?client_id=" + config.client_id + '&categories=' + theme + '&lt_max_playtime=' +  playTime + playerCountParameter)
+    fetch("https://www.boardgameatlas.com/api/search?client_id=" + config.client_id + '&categories=' + theme + '&lt_max_playtime=' +  time + playerCountParameter)
     .then(res => res.json())
     .then(
       (result) => {
@@ -60,12 +61,16 @@ class Wizard extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <Stepper onFinish={this.getGames.bind(this)} />
-        <Results results={this.state.resultItems} />
-      </div>
-    )
+    if (this.state.isActive) {
+      return (
+        <div>
+          <Stepper onFinish={this.getGames.bind(this)} />
+          <Results results={this.state.resultItems} />
+        </div>
+      )
+    } else {
+      return (null)
+    }
   }
 }
 

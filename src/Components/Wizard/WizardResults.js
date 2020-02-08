@@ -42,52 +42,51 @@ class WizardResults extends React.Component {
     return (
       <div>
         <ThemeProvider theme={theme}>
-            {items && items.map((item, index) => (
-              <div className="results">
-                <Typography variant="h3">Results</Typography>
-                <ul>
-                  <li className="result-item" key={item.id}>
-                    <div className="game-thumbnail">
-                      <img className="thumbnail" src={item.thumb_url} alt={item.name} />
-                    </div>
-                    <div className="game-info">
-                      <span className="result-number">#{index + 1}</span><h2 className="game-title">{item.name}</h2>
-                      <div className="game-details">
-                        <div className="game-detail">
-                          <span className="detail-title">MSRP:</span> ${item.msrp}
-                        </div>
-                        <div className="game-detail">
-                          <span className="detail-title">Year:</span> {item.year_published}
-                        </div>
-                        <div className="game-detail">
-                          <span className="detail-title">Players:</span> {item.min_players} - {item.max_players}
-                        </div>
-                        <div className="game-detail">
-                          <span className="detail-title">Primary publisher:</span> {item.primary_publisher}
-                        </div>
-                        <div className="game-detail">
-                          <span className="detail-title">Designers:</span> {item.designers.join(', ')}
-                        </div>
-                        <div className="game-detail">
-                          <span className="detail-title">Playtime:</span> {item.min_playtime} - {item.max_playtime} min
-                        </div>
-                        <div className="game-detail">
-                          <span className="detail-title">Min age:</span> {item.min_age}
-                        </div>
-                        <div className="game-detail">
-                          <span className="detail-title">
-                            <Link href={item.url} target="_blank">
-                              BGA Link
-                            </Link>
-                          </span>
-                        </div>
+          <div className="results">
+            <ul>
+              {items && items.map((item, index) => (
+                <li className="result-item" key={item.id}>
+                  <div className="game-thumbnail">
+                    <img className="thumbnail" src={item.thumb_url} alt={item.name} />
+                  </div>
+                  <div className="game-info">
+                    <span className="result-number">#{index + 1}</span><h2 className="game-title">{item.name}</h2>
+                    <div className="game-details">
+                      <div className="game-detail">
+                        <span className="detail-title">MSRP:</span> ${item.msrp}
                       </div>
-                      <p className="game-description" dangerouslySetInnerHTML={{__html: item.description}}></p>
+                      <div className="game-detail">
+                        <span className="detail-title">Year:</span> {item.year_published}
+                      </div>
+                      <div className="game-detail">
+                        <span className="detail-title">Players:</span> {item.min_players} - {item.max_players}
+                      </div>
+                      <div className="game-detail">
+                        <span className="detail-title">Primary publisher:</span> {item.primary_publisher}
+                      </div>
+                      <div className="game-detail">
+                        <span className="detail-title">Designers:</span> {item.designers.join(', ')}
+                      </div>
+                      <div className="game-detail">
+                        <span className="detail-title">Playtime:</span> {item.min_playtime} - {item.max_playtime} min
+                      </div>
+                      <div className="game-detail">
+                        <span className="detail-title">Min age:</span> {item.min_age}
+                      </div>
+                      <div className="game-detail">
+                        <span className="detail-title">
+                          <Link href={item.url} target="_blank">
+                            BGA Link
+                          </Link>
+                        </span>
+                      </div>
                     </div>
-                  </li>
-                </ul>
-              </div>
-            ))}
+                    <p className="game-description" dangerouslySetInnerHTML={{__html: item.description}}></p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </ThemeProvider>
       </div>
     )
