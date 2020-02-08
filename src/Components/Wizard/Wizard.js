@@ -1,5 +1,6 @@
 import React from 'react'
 import Stepper from './WizardStepper'
+import Results from './WizardResults'
 
 class Wizard extends React.Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class Wizard extends React.Component {
     return (
       <div>
         <Stepper onFinish={this.getGames.bind(this)} />
+        <Results />
       </div>
     )
   }

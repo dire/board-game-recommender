@@ -8,6 +8,7 @@ class WizardPlayerCount extends React.Component {
     this.state = {
 
     }
+
     this.onOptionSelected = this.onOptionSelected.bind(this)
   }
 

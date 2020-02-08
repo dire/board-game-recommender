@@ -8,7 +8,7 @@ import Wizard from './Components/Wizard/Wizard'
 function App() {
   return (
     <div>
-      <Container maxWidth="lg">
+      <Container className="main-content" maxWidth="lg">
         <h1>Board Game Recommendation Engine Mk.I</h1>
         <Wizard />
       </Container>

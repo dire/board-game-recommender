@@ -10,6 +10,10 @@ main {
   margin: 0 auto;
 }
 
+.main-content {
+  min-height: 90vh;
+}
+
 .system-message {
   position: absolute;
   top: 50%;

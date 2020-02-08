@@ -18,6 +18,13 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
   },
+  wizardOptions: {
+    textAlign: 'center',
+    margin: '50px 0'
+  },
+  stepOptions: {
+    margin: '50px 0',
+  }
 }));
 
 function getSteps() {
@@ -27,11 +34,11 @@ function getSteps() {
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return 'Player count';
+      return 'Lone wolf or got a group?';
     case 1:
-      return 'Playtime';
+      return 'A quick round or full gaming night?';
     case 2:
-      return 'Theme';
+      return 'Theme party!';
     default:
       return 'Unknown step';
   }
@@ -150,23 +157,20 @@ export default function HorizontalLinearStepper(props) {
             </Button>
           </div>
         ) : (
-          <div>
-            <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+          <div className={classes.wizardOptions}>
+            <Typography className={classes.instructions} variant="h3">{getStepContent(activeStep)}</Typography>
             {activeStep === 0 &&
-              <div className="step-playercount">
-                <h2>Forever alone or got a group?</h2>
+              <div className={classes.stepOptions}>
                 <WizardOptions step="playerCount" onSelect={updatePlayerCount} options={playerCountOptions} />
               </div>
             }
             {activeStep === 1 &&
-              <div className="step-playtime">
-                <h2>A quick round or full gaming night?</h2>
+              <div className={classes.stepOptions}>
                 <WizardOptions step="playTime" onSelect={updatePlayTime} options={playTimeOptions} />
               </div>
             }
             {activeStep === 2 &&
-              <div className="step-theme">
-                <h2>Theme party!</h2>
+              <div className={classes.stepOptions}>
                 <WizardOptions step="theme" onSelect={updateTheme} options={themeOptions} />
               </div>
             }
