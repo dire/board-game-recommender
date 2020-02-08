@@ -10,6 +10,7 @@ import WizardOptions from './WizardOptions'
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
+    margin: '50px 0'
   },
   button: {
     marginRight: theme.spacing(1),
