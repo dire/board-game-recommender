@@ -15,10 +15,16 @@ class Wizard extends React.Component {
     })
   }
 
+  getGames (playerCount, playTime, theme) {
+    console.log(playerCount)
+    console.log(playTime)
+    console.log(theme)
+  }
+
   render() {
     return (
       <div>
-        <Stepper />
+        <Stepper onFinish={this.getGames.bind(this)} />
       </div>
     )
   }

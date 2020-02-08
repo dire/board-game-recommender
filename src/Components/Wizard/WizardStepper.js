@@ -37,7 +37,7 @@ function getStepContent(step) {
   }
 }
 
-export default function HorizontalLinearStepper() {
+export default function HorizontalLinearStepper(props) {
   const classes = useStyles()
   const [activeStep, setActiveStep] = React.useState(0)
   const steps = getSteps()
@@ -47,6 +47,10 @@ export default function HorizontalLinearStepper() {
 
   const handleNext = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1)
+
+    if (activeStep + 1 === steps.length) {
+      props.onFinish(playerCount, playTime, theme)
+    }
   };
 
   const handleBack = () => {
