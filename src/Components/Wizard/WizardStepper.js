@@ -92,11 +92,11 @@ export default function HorizontalLinearStepper(props) {
     },
     {
       'label': '2-4',
-      'value': '2-4'
+      'value': '3'
     },
     {
       'label': '4+',
-      'value': '4+'
+      'value': '4'
     },
   ]
 
@@ -122,15 +122,19 @@ export default function HorizontalLinearStepper(props) {
   const themeOptions = [
     {
       'label': 'Fantasy',
-      'value': 'fantasy'
+      'value': 'ZTneo8TaIO'
     },
     {
       'label': 'Horror',
-      'value': 'horror'
+      'value': 'cAIkk5aLdQ'
     },
     {
       'label': 'Sci-fi',
-      'value': 'sci-fi'
+      'value': '3B3QpKvXD3'
+    },
+    {
+      'label': 'Strategy',
+      'value': 'O0ogzwLUe8'
     },
   ]
 
