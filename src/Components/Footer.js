@@ -15,7 +15,7 @@ class Footer extends React.Component {
       <footer>
         <p>Made by: <Link href="https://github.com/dire">dire</Link> | Copyright © {(new Date().getFullYear())}</p>
         <p>Info of the games, popularity etc. come from Board Game Atlas API</p>
-        <p>v{pkg.version}</p>
+        <p className="version">v{pkg.version}</p>
       </footer>
     )
   }

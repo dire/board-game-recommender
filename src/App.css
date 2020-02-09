@@ -118,6 +118,12 @@ ul {
   display: block;
 }
 
+footer {
+  padding: 50px  0;
+  text-align: center;
+  color: #888;
+}
+
 /* TYPOGRAPHY */
 h1 {
   text-align: center;
@@ -125,11 +131,9 @@ h1 {
   margin: 50px 0;
 }
 
-footer {
-  padding: 50px  0;
-  text-align: center;
+.version {
+  font-size: 0.8em;
 }
-
 
 @media only screen and (max-width: 600px) {
   .result-item {
@@ -147,5 +151,9 @@ footer {
   .game-detail {
     width: calc(50% - 20px);
     padding: 10px;
+  }
+
+  .result-item .game-info {
+    padding-right: 0;
   }
 }
