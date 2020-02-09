@@ -10,4 +10,5 @@ This app recommends board games based on selected filters.
 - [x] Make it prettier
 - [ ] Make it even prettier
 - [ ] Search for a random game
+- [ ] Wizard style search
 - [ ] ...
