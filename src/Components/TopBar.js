@@ -60,8 +60,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function TopBar() {
+export default function TopBar(props) {
   const classes = useStyles();
+
+  const selectActiveView = event => {
+    props.selectActiveView(event.currentTarget.value)
+  };
 
   return (
     <div className={classes.root}>
@@ -78,8 +82,8 @@ export default function TopBar() {
           <Typography className={classes.title} variant="h6" noWrap>
             Board Game Recommendation Engine Mk.I
           </Typography>
-          <Button color="inherit">Simple</Button>
-          <Button color="inherit">Detailed search</Button>
+          <Button color="inherit" onClick={selectActiveView} value="wizard">Simple</Button>
+          <Button color="inherit" onClick={selectActiveView} value="detailedSearch">Detailed search</Button>
         </Toolbar>
       </AppBar>
     </div>

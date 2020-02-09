@@ -10,17 +10,23 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      activeView: 'wizard'
+    }
+  }
 
-    };
+  changeActiveView(newActiveView) {
+    this.setState({
+      activeView: newActiveView
+    });
   }
 
   render() {
     return (
       <div>
-        <TopBar />
+        <TopBar selectActiveView={this.changeActiveView.bind(this)} />
         <Container className="main-content" maxWidth="lg">
-          <Wizard />
-          <Search />
+          <Wizard activeView={this.state.activeView} />
+          <Search activeView={this.state.activeView} />
         </Container>
         <Container maxWidth="lg">
           <Footer />

@@ -96,7 +96,7 @@ class Search extends React.Component {
   };
 
   render() {
-    if (this.state.isActive) {
+    if (this.props.activeView === 'detailedSearch') {
       const { error, isLoaded, items } = this.state
       const theme = createMuiTheme({
         palette: {

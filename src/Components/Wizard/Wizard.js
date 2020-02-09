@@ -66,7 +66,7 @@ class Wizard extends React.Component {
   }
 
   render() {
-    if (this.state.isActive) {
+    if (this.props.activeView === 'wizard') {
       return (
         <div>
           <Stepper onFinish={this.getGames.bind(this)} />
