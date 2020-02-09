@@ -23,6 +23,7 @@ class Wizard extends React.Component {
 
   getGames (playerCount, playTime, theme) {
     let playerCountParameter = ''
+    let categories = theme ? '&categories=' + theme : '';
 
     if (!playTime) {
       playTime = 9999
@@ -47,7 +48,7 @@ class Wizard extends React.Component {
         playerCountParameter = '&min_players=1'
     }
 
-    fetch("https://www.boardgameatlas.com/api/search?client_id=" + config.client_id + '&categories=' + theme + '&lt_max_playtime=' +  time + playerCountParameter)
+    fetch("https://www.boardgameatlas.com/api/search?client_id=" + config.client_id + categories + '&lt_max_playtime=' +  time + playerCountParameter)
     .then(res => res.json())
     .then(
       (result) => {
