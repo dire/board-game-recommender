@@ -1,6 +1,5 @@
 import React from 'react'
 import Filters from './Filters'
-import config from '../config.json'
 import Link from '@material-ui/core/Link'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -13,12 +12,12 @@ class Search extends React.Component {
       isLoaded: false,
       items: [],
       filters: [],
-      fetchUrl: 'https://www.boardgameatlas.com/api/search?client_id=' + config.client_id,
+      fetchUrl: 'https://blooming-temple-02451.herokuapp.com/?',
       selectedFilters: '',
       isActive: false,
     };
   }
-  
+
   getData() {
     fetch(this.state.fetchUrl)
       .then(res => res.json())
@@ -86,10 +85,15 @@ class Search extends React.Component {
       selectedFilters = selectedFilters + '&ascending=' + filters['ascending']
     }
 
+    if (selectedFilters.charAt(0) === '&') {
+      selectedFilters = selectedFilters.substr(1)
+      console.log(selectedFilters)
+    }
+
     this.setState({
       filters: filters,
       selectedFilters: selectedFilters,
-      fetchUrl: 'https://www.boardgameatlas.com/api/search?&limit=100' + selectedFilters + '&client_id=' + config.client_id
+      fetchUrl: 'https://blooming-temple-02451.herokuapp.com/?' + selectedFilters
     }, () => {
       this.getData()
     })
@@ -121,7 +125,7 @@ class Search extends React.Component {
           tonalOffset: 0.2,
         },
       });
-      
+
       if (error) {
         return <div className="system-message">Error: {error.message}</div>
       } else if (!isLoaded) {
