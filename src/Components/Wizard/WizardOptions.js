@@ -1,32 +1,54 @@
 import React from 'react'
-import ButtonGroup from '@material-ui/core/ButtonGroup'
-import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import { makeStyles } from '@material-ui/core/styles';
 
-class WizardPlayerCount extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-
+const useStyles = makeStyles(theme => ({
+  toggleContainer: {
+    margin: theme.spacing(2, 0),
+  },
+  buttonGroup: {
+    backgroundColor: theme.palette.primary.main,
+  },
+  toggleButton: {
+    color: 'white',
+    '&:hover': {
+      backgroundColor: "rgba(0, 0, 0, 0.12)",
+    },
+    '&.Mui-selected': {
+      color: "white",
     }
-
-    this.onOptionSelected = this.onOptionSelected.bind(this)
   }
+}));
 
-  onOptionSelected(el) {
-    this.props.onSelect(this.props.step, el.currentTarget.value)
-  }
+export default function ToggleButtons(props) {
+  const [alignment, setAlignment] = React.useState('left');
 
-  render() {
-    return (
-      <div>
-        <ButtonGroup aria-label="outlined primary button group">
-          {this.props.options.map((item) =>
-            <Button onClick={this.onOptionSelected} value={item.value} variant="contained" color="primary" key={item.value}>{item.label}</Button>
-          )}
-        </ButtonGroup>
-      </div>
-    )
-  }
+  const onOptionSelected = (event, newAlignment) => {
+    setAlignment(newAlignment);
+    props.onSelect(props.step, event.currentTarget.value);
+  };
+
+  const classes = useStyles();
+
+  return (
+    <Grid container justify="center" spacing={2}>
+      <Grid item sm={12} md={6}>
+        <div className={classes.toggleContainer}>
+          <ToggleButtonGroup
+            className={classes.buttonGroup}
+            value={alignment}
+            exclusive
+            onChange={onOptionSelected}
+            aria-label="text alignment"
+          >
+            {props.options.map((item) =>
+              <ToggleButton className={classes.toggleButton} onClick={onOptionSelected} value={item.value} variant="contained" color="primary" key={item.value}>{item.label}</ToggleButton>
+            )}
+          </ToggleButtonGroup>
+        </div>
+      </Grid>
+    </Grid>
+  );
 }
-
-export default WizardPlayerCount

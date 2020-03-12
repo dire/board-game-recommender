@@ -53,7 +53,7 @@ class App extends React.Component {
       '@global': {
         // You should target [class*="MuiButton-root"] instead if you nest themes.
         '.topbarButton:hover': {
-          backgroundColor: 'rgba(0, 0, 0, 0.12)'
+
         },
       },
     })(() => null);
