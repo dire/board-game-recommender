@@ -15,6 +15,9 @@ const useStyles = makeStyles(theme => ({
   button: {
     marginRight: theme.spacing(1),
   },
+  finishScreen: {
+    textAlign: 'center',
+  },
   instructions: {
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
@@ -25,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   },
   stepOptions: {
     margin: '50px 0',
-  }
+  },
 }));
 
 function getSteps() {
@@ -153,11 +156,11 @@ export default function HorizontalLinearStepper(props) {
       </Stepper>
       <div>
         {activeStep === steps.length ? (
-          <div>
+          <div className={classes.finishScreen}>
             <Typography className={classes.instructions}>
               All steps completed - you&apos;re finished
             </Typography>
-            <Button onClick={handleReset} className={classes.button}>
+            <Button onClick={handleReset} className={classes.resetButton}>
               Reset
             </Button>
           </div>
