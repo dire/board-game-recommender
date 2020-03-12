@@ -1,5 +1,4 @@
 import React from 'react'
-import config from '../config.json'
 import SelectYear from './YearSlider'
 import SelectPlayerCount from './SelectPlayerCount'
 import PlaytimeSlider from './PlaytimeSlider'
@@ -58,7 +57,7 @@ class Filters extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://www.boardgameatlas.com/api/game/mechanics?client_id=" + config.client_id)
+    fetch("https://blooming-temple-02451.herokuapp.com/mechanics.php")
       .then(res => res.json())
       .then(
         (result) => {
@@ -74,7 +73,7 @@ class Filters extends React.Component {
           });
         }
       )
-    fetch("https://www.boardgameatlas.com/api/game/categories?client_id=" + config.client_id)
+    fetch("https://blooming-temple-02451.herokuapp.com/categories.php")
     .then(res => res.json())
     .then(
       (result) => {

@@ -32,11 +32,11 @@ const MenuProps = {
 
 export default function MechanicSelect (props) {
   const options = props.options
-  const classes = useStyles();
-  const [mechanicId, setMechanicId] = React.useState([]);
+  const classes = useStyles()
+  const [mechanicId, setMechanicId] = React.useState([])
 
   const handleChange = event => {
-    setMechanicId(event.target.value);
+    setMechanicId(event.target.value)
     props.handleChange('mechanic', event.target.value)
   };
 
