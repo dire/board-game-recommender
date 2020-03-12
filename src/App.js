@@ -46,7 +46,7 @@ class App extends React.Component {
         tonalOffset: 0.2,
       },
     });
-  
+
     return (
       <div>
         <ThemeProvider theme={theme}>

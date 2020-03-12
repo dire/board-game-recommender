@@ -11,6 +11,7 @@ class Wizard extends React.Component {
       error: null,
       resultItems: [],
       fetchUrl: '',
+      isFetching: false,
     }
   }
 
@@ -47,19 +48,25 @@ class Wizard extends React.Component {
         playerCountParameter = '&min_players=1'
     }
 
+    this.setState({
+      isFetching: true,
+    });
+
     fetch("https://blooming-temple-02451.herokuapp.com/?" + categories + '&lt_max_playtime=' +  time + playerCountParameter)
     .then(res => res.json())
     .then(
       (result) => {
         this.setState({
           isLoaded: true,
-          resultItems: result.games
+          resultItems: result.games,
+          isFetching: false,
         });
       },
       (error) => {
         this.setState({
-          isLoaded: true,
-          error
+          isLoaded: false,
+          error,
+          isFetching: false,
         });
       }
     )
@@ -70,7 +77,7 @@ class Wizard extends React.Component {
       return (
         <div>
           <Stepper onFinish={this.getGames.bind(this)} />
-          <Results results={this.state.resultItems} />
+          <Results results={this.state.resultItems} isFetching={this.state.isFetching} />
         </div>
       )
     } else {

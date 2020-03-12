@@ -1,11 +1,11 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
+import TimelineIcon from '@material-ui/icons/Timeline';
+import TuneIcon from '@material-ui/icons/Tune';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -58,6 +58,9 @@ const useStyles = makeStyles(theme => ({
       },
     },
   },
+  menuIcon: {
+    marginRight: "10px",
+  },
 }));
 
 export default function TopBar(props) {
@@ -71,19 +74,11 @@ export default function TopBar(props) {
     <div className={classes.root}>
       <AppBar position="sticky">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             Board Game Recommendation Engine Mk.I
           </Typography>
-          <Button color="inherit" onClick={selectActiveView} value="wizard">Simple</Button>
-          <Button color="inherit" onClick={selectActiveView} value="detailedSearch">Detailed search</Button>
+          <Button color="inherit" onClick={selectActiveView} value="wizard"><TimelineIcon className={classes.menuIcon} />Simple</Button>
+          <Button color="inherit" onClick={selectActiveView} value="detailedSearch"><TuneIcon className={classes.menuIcon} />Detailed search</Button>
         </Toolbar>
       </AppBar>
     </div>
