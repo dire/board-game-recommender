@@ -52,10 +52,22 @@ class App extends React.Component {
       // @global is handled by jss-plugin-global.
       '@global': {
         // You should target [class*="MuiButton-root"] instead if you nest themes.
-        '.topbarButton:hover': {
-
+        '.MuiSlider-thumb': {
+          height: 20,
+          width: 20,
+          marginTop: "-8px",
+          marginLeft: "-9px",
         },
-      },
+        '.MuiSlider-rail': {
+          height: 4,
+        },
+        '.MuiSlider-track': {
+          height: 4
+        },
+        '.MuiSlider-mark': {
+          height: 4
+        }
+      }
     })(() => null);
 
     return (
