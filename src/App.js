@@ -7,6 +7,7 @@ import Wizard from './Components/Wizard/Wizard'
 import Search from './Components/Search'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 class App extends React.Component {
   constructor(props) {
@@ -47,9 +48,20 @@ class App extends React.Component {
       },
     });
 
+    const GlobalCss = withStyles({
+      // @global is handled by jss-plugin-global.
+      '@global': {
+        // You should target [class*="MuiButton-root"] instead if you nest themes.
+        '.topbarButton:hover': {
+          backgroundColor: 'rgba(0, 0, 0, 0.12)'
+        },
+      },
+    })(() => null);
+
     return (
       <div>
         <ThemeProvider theme={theme}>
+          <GlobalCss />
           <TopBar selectActiveView={this.changeActiveView.bind(this)} />
           <Container className="main-content" maxWidth="lg">
             <Wizard activeView={this.state.activeView} />
