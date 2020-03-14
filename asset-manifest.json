@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/board-game-recommender/static/css/main.064f90ee.chunk.css",
+    "main.js": "/board-game-recommender/static/js/main.e9aabfb8.chunk.js",
+    "main.js.map": "/board-game-recommender/static/js/main.e9aabfb8.chunk.js.map",
+    "runtime-main.js": "/board-game-recommender/static/js/runtime-main.61c8e5a1.js",
+    "runtime-main.js.map": "/board-game-recommender/static/js/runtime-main.61c8e5a1.js.map",
+    "static/js/2.49872476.chunk.js": "/board-game-recommender/static/js/2.49872476.chunk.js",
+    "static/js/2.49872476.chunk.js.map": "/board-game-recommender/static/js/2.49872476.chunk.js.map",
+    "index.html": "/board-game-recommender/index.html",
+    "precache-manifest.a5172b3df6cec189dfc5e4a272a4540e.js": "/board-game-recommender/precache-manifest.a5172b3df6cec189dfc5e4a272a4540e.js",
+    "service-worker.js": "/board-game-recommender/service-worker.js",
+    "static/css/main.064f90ee.chunk.css.map": "/board-game-recommender/static/css/main.064f90ee.chunk.css.map",
+    "static/js/2.49872476.chunk.js.LICENSE": "/board-game-recommender/static/js/2.49872476.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.61c8e5a1.js",
+    "static/js/2.49872476.chunk.js",
+    "static/css/main.064f90ee.chunk.css",
+    "static/js/main.e9aabfb8.chunk.js"
+  ]
+}
