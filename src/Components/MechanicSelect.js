@@ -30,12 +30,23 @@ const MenuProps = {
   },
 };
 
+let selectedNames = []
+
 export default function MechanicSelect (props) {
   const options = props.options
   const classes = useStyles()
   const [mechanicId, setMechanicId] = React.useState([])
 
-  const handleChange = event => {
+  const handleChange = (event, selection) => {
+    let selectedName = selection.props.name
+
+    if (selectedNames.includes(selectedName)) {
+      let index = selectedNames.indexOf(selectedName)
+      selectedNames.splice(index, 1)
+    } else {
+      selectedNames.push(selectedName)
+    }
+
     setMechanicId(event.target.value)
     props.handleChange('mechanic', event.target.value)
   };
@@ -51,11 +62,11 @@ export default function MechanicSelect (props) {
           value={mechanicId}
           onChange={handleChange}
           input={<Input />}
-          renderValue={selected => selected.join(', ')}
+          renderValue={selected => selectedNames.join(', ')}
           MenuProps={MenuProps}
         >
           {options.map(mechanic => (
-            <MenuItem key={mechanic.id} value={mechanic.id}>
+            <MenuItem key={mechanic.id} value={mechanic.id} name={mechanic.name}>
               <Checkbox checked={mechanicId.indexOf(mechanic.id) > -1} />
               <ListItemText primary={mechanic.name} />
             </MenuItem>

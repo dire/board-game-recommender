@@ -30,12 +30,23 @@ const MenuProps = {
   },
 };
 
+let selectedNames = []
+
 export default function CategorySelect (props) {
   const options = props.options
-  const classes = useStyles();
-  const [categoryId, setCategoryId] = React.useState([]);
+  const classes = useStyles()
+  const [categoryId, setCategoryId] = React.useState([])
 
-  const handleChange = event => {
+  const handleChange = (event, selection) => {
+    let selectedName = selection.props.name
+
+    if (selectedNames.includes(selectedName)) {
+      let index = selectedNames.indexOf(selectedName)
+      selectedNames.splice(index, 1)
+    } else {
+      selectedNames.push(selectedName)
+    }
+
     setCategoryId(event.target.value);
     props.handleChange('categories', event.target.value)
   };
@@ -51,12 +62,12 @@ export default function CategorySelect (props) {
           value={categoryId}
           onChange={handleChange}
           input={<Input />}
-          renderValue={selected => selected.join(', ')}
+          renderValue={selected => selectedNames.join(', ')}
           MenuProps={MenuProps}
         >
           {options.map(category => (
-            <MenuItem key={category.id} value={category.id}>
-              <Checkbox checked={categoryId.indexOf(category.id) > -1} />
+            <MenuItem key={category.id} value={category.id} name={category.name}>
+              <Checkbox checked={categoryId.indexOf(category.id) > -1}/>
               <ListItemText primary={category.name} />
             </MenuItem>
           ))}
