@@ -85,7 +85,6 @@ class Search extends React.Component {
 
     if (selectedFilters.charAt(0) === '&') {
       selectedFilters = selectedFilters.substr(1)
-      console.log(selectedFilters)
     }
 
     this.setState({
