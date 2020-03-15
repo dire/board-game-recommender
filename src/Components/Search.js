@@ -1,6 +1,6 @@
 import React from 'react'
 import Filters from './Filters'
-import Link from '@material-ui/core/Link'
+import Results from './Results'
 
 class Search extends React.Component {
   constructor(props) {
@@ -13,23 +13,30 @@ class Search extends React.Component {
       fetchUrl: 'https://blooming-temple-02451.herokuapp.com/?',
       selectedFilters: '',
       isActive: false,
+      isFetching: false,
     };
   }
 
   getData() {
+    this.setState({
+      isFetching: true,
+    });
+
     fetch(this.state.fetchUrl)
       .then(res => res.json())
       .then(
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result.games
+            items: result.games,
+            isFetching: false
           });
         },
         (error) => {
           this.setState({
             isLoaded: true,
-            error
+            error,
+            isFetching: false
           });
         }
       )
@@ -98,7 +105,7 @@ class Search extends React.Component {
 
   render() {
     if (this.props.activeView === 'detailedSearch') {
-      const { error, isLoaded, items } = this.state
+      const { error, isLoaded, items, isFetching } = this.state
       if (error) {
         return <div className="system-message">Error: {error.message}</div>
       } else if (!isLoaded) {
@@ -107,51 +114,7 @@ class Search extends React.Component {
         return (
           <div className="search">
             <Filters submitFilters={this.getFilters.bind(this)} />
-            <div className="results">
-              <ul>
-                {items.map((item, index) => (
-                  <li className="result-item" key={item.id}>
-                    <div className="game-thumbnail">
-                      <img className="thumbnail" src={item.thumb_url} alt={item.name} />
-                    </div>
-                    <div className="game-info">
-                      <span className="result-number">#{index + 1}</span><h2 className="game-title">{item.name}</h2>
-                      <div className="game-details">
-                        <div className="game-detail">
-                          <span className="detail-title">MSRP:</span> ${item.msrp}
-                        </div>
-                        <div className="game-detail">
-                          <span className="detail-title">Year:</span> {item.year_published}
-                        </div>
-                        <div className="game-detail">
-                          <span className="detail-title">Players:</span> {item.min_players} - {item.max_players}
-                        </div>
-                        <div className="game-detail">
-                          <span className="detail-title">Primary publisher:</span> {item.primary_publisher}
-                        </div>
-                        <div className="game-detail">
-                          <span className="detail-title">Designers:</span> {item.designers.join(', ')}
-                        </div>
-                        <div className="game-detail">
-                          <span className="detail-title">Playtime:</span> {item.min_playtime} - {item.max_playtime} min
-                        </div>
-                        <div className="game-detail">
-                          <span className="detail-title">Min age:</span> {item.min_age}
-                        </div>
-                        <div className="game-detail">
-                          <span className="detail-title">
-                            <Link href={item.url} target="_blank">
-                              BGA Link
-                            </Link>
-                          </span>
-                        </div>
-                      </div>
-                      <p className="game-description" dangerouslySetInnerHTML={{__html: item.description}}></p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <Results results={items} isFetching={isFetching} />
           </div>
         );
       }
