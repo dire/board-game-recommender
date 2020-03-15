@@ -3,7 +3,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import Link from '@material-ui/core/Link'
 
-class WizardResults extends React.Component {
+class Results extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -96,4 +96,4 @@ class WizardResults extends React.Component {
   }
 }
 
-export default WizardResults
+export default Results

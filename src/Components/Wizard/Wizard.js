@@ -1,6 +1,6 @@
 import React from 'react'
 import Stepper from './WizardStepper'
-import Results from './WizardResults'
+import Results from '../Results'
 
 class Wizard extends React.Component {
   constructor(props) {
