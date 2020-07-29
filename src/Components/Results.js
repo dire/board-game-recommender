@@ -76,7 +76,7 @@ class Results extends React.Component {
                           <span className="detail-title">Min age:</span> {item.min_age}
                         </div>
                         <div className="game-detail">
-                          <span className="detail-title">Avg. rating:</span> {item.average_user_rating} ({item.num_user_rating})
+                          <span className="detail-title">Avg. rating:</span> {item.average_user_rating.toFixed(2)} ({item.num_user_ratings})
                         </div>
                         <div className="game-detail">
                           <span className="detail-title">
