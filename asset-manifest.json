@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/board-game-recommender/static/css/main.ecec425e.chunk.css",
-    "main.js": "/board-game-recommender/static/js/main.c5934f84.chunk.js",
-    "main.js.map": "/board-game-recommender/static/js/main.c5934f84.chunk.js.map",
+    "main.js": "/board-game-recommender/static/js/main.4ab13fad.chunk.js",
+    "main.js.map": "/board-game-recommender/static/js/main.4ab13fad.chunk.js.map",
     "runtime-main.js": "/board-game-recommender/static/js/runtime-main.8013973a.js",
     "runtime-main.js.map": "/board-game-recommender/static/js/runtime-main.8013973a.js.map",
     "static/js/2.f64d1ff0.chunk.js": "/board-game-recommender/static/js/2.f64d1ff0.chunk.js",
     "static/js/2.f64d1ff0.chunk.js.map": "/board-game-recommender/static/js/2.f64d1ff0.chunk.js.map",
     "index.html": "/board-game-recommender/index.html",
-    "precache-manifest.2cd4c0d67067062d8fa95c391bb97913.js": "/board-game-recommender/precache-manifest.2cd4c0d67067062d8fa95c391bb97913.js",
+    "precache-manifest.de4acd9ae4dda23129a154078cab4d5a.js": "/board-game-recommender/precache-manifest.de4acd9ae4dda23129a154078cab4d5a.js",
     "service-worker.js": "/board-game-recommender/service-worker.js",
     "static/css/main.ecec425e.chunk.css.map": "/board-game-recommender/static/css/main.ecec425e.chunk.css.map",
     "static/js/2.f64d1ff0.chunk.js.LICENSE.txt": "/board-game-recommender/static/js/2.f64d1ff0.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.8013973a.js",
     "static/js/2.f64d1ff0.chunk.js",
     "static/css/main.ecec425e.chunk.css",
-    "static/js/main.c5934f84.chunk.js"
+    "static/js/main.4ab13fad.chunk.js"
   ]
 }
