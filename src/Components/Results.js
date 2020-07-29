@@ -76,6 +76,9 @@ class Results extends React.Component {
                           <span className="detail-title">Min age:</span> {item.min_age}
                         </div>
                         <div className="game-detail">
+                          <span className="detail-title">Avg. rating:</span> {item.average_user_rating} ({item.num_user_rating})
+                        </div>
+                        <div className="game-detail">
                           <span className="detail-title">
                             <Link href={item.url} target="_blank">
                               BGA Link
