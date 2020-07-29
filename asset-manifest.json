@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/board-game-recommender/static/css/main.d61cd3e6.chunk.css",
-    "main.js": "/board-game-recommender/static/js/main.f90128c2.chunk.js",
-    "main.js.map": "/board-game-recommender/static/js/main.f90128c2.chunk.js.map",
-    "runtime-main.js": "/board-game-recommender/static/js/runtime-main.18151475.js",
-    "runtime-main.js.map": "/board-game-recommender/static/js/runtime-main.18151475.js.map",
-    "static/js/2.93a1bc08.chunk.js": "/board-game-recommender/static/js/2.93a1bc08.chunk.js",
-    "static/js/2.93a1bc08.chunk.js.map": "/board-game-recommender/static/js/2.93a1bc08.chunk.js.map",
+    "main.css": "/board-game-recommender/static/css/main.ecec425e.chunk.css",
+    "main.js": "/board-game-recommender/static/js/main.7ea9b118.chunk.js",
+    "main.js.map": "/board-game-recommender/static/js/main.7ea9b118.chunk.js.map",
+    "runtime-main.js": "/board-game-recommender/static/js/runtime-main.8013973a.js",
+    "runtime-main.js.map": "/board-game-recommender/static/js/runtime-main.8013973a.js.map",
+    "static/js/2.f64d1ff0.chunk.js": "/board-game-recommender/static/js/2.f64d1ff0.chunk.js",
+    "static/js/2.f64d1ff0.chunk.js.map": "/board-game-recommender/static/js/2.f64d1ff0.chunk.js.map",
     "index.html": "/board-game-recommender/index.html",
-    "precache-manifest.2152e1c0d994669a60f17dc4255d63d6.js": "/board-game-recommender/precache-manifest.2152e1c0d994669a60f17dc4255d63d6.js",
+    "precache-manifest.5cf570a16cd69ed694d95cc124266bac.js": "/board-game-recommender/precache-manifest.5cf570a16cd69ed694d95cc124266bac.js",
     "service-worker.js": "/board-game-recommender/service-worker.js",
-    "static/css/main.d61cd3e6.chunk.css.map": "/board-game-recommender/static/css/main.d61cd3e6.chunk.css.map",
-    "static/js/2.93a1bc08.chunk.js.LICENSE.txt": "/board-game-recommender/static/js/2.93a1bc08.chunk.js.LICENSE.txt"
+    "static/css/main.ecec425e.chunk.css.map": "/board-game-recommender/static/css/main.ecec425e.chunk.css.map",
+    "static/js/2.f64d1ff0.chunk.js.LICENSE.txt": "/board-game-recommender/static/js/2.f64d1ff0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.18151475.js",
-    "static/js/2.93a1bc08.chunk.js",
-    "static/css/main.d61cd3e6.chunk.css",
-    "static/js/main.f90128c2.chunk.js"
+    "static/js/runtime-main.8013973a.js",
+    "static/js/2.f64d1ff0.chunk.js",
+    "static/css/main.ecec425e.chunk.css",
+    "static/js/main.7ea9b118.chunk.js"
   ]
 }
