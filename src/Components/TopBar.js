@@ -6,6 +6,7 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import TuneIcon from '@material-ui/icons/Tune';
+import DieIcon from '@material-ui/icons/Casino';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -81,6 +82,7 @@ export default function TopBar(props) {
           </Typography>
           <Button className={classes.topBarButton} color="inherit" onClick={selectActiveView} value="wizard"><TimelineIcon className={classes.menuIcon} />Simple</Button>
           <Button className={classes.topBarButton} color="inherit" onClick={selectActiveView} value="detailedSearch"><TuneIcon className={classes.menuIcon} />Detailed search</Button>
+          <Button className={classes.topBarButton} color="inherit" onClick={selectActiveView} value="random"><DieIcon className={classes.menuIcon} />Random game</Button>
         </Toolbar>
       </AppBar>
     </div>
