@@ -140,7 +140,7 @@ class Results extends React.Component {
                           </span>
                         </div>
                       </div>
-                      <Accordion expanded={true}>
+                      <Accordion defaultExpanded={true}>
                         <AccordionSummary
                           expandIcon={<ExpandMoreIcon />}
                           aria-controls="panel1a-content"
