@@ -8,6 +8,7 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 class RandomGame extends React.Component {
   constructor(props) {
@@ -78,6 +79,27 @@ class RandomGame extends React.Component {
     )
   }
 
+  getRandomGame() {
+    fetch("https://blooming-temple-02451.herokuapp.com/?random=true")
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          isLoaded: true,
+          randomGame: result,
+          isFetching: false,
+        });
+      },
+      (error) => {
+        this.setState({
+          isLoaded: false,
+          error,
+          isFetching: false,
+        });
+      }
+    )
+  }
+
   render() {
     const { error, isLoaded, mechanics, categories, randomGame } = this.state;
     const theme = createMuiTheme({
@@ -117,10 +139,10 @@ class RandomGame extends React.Component {
     if (this.state.isFetching || randomGame.length < 1) {
       return <div className="system-message">Fetching games from the shelf...</div>
     } else {
-      console.log(randomGame);
       return (
         <div>
           <ThemeProvider theme={theme}>
+            <Button variant="contained"  onClick={() => { this.getRandomGame() }}>Get random game</Button>
             <div className="results">
               <ul>
                 <li className="result-item" key={randomGame.game.id}>
