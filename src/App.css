@@ -135,6 +135,10 @@ h1 {
   font-size: 0.8em;
 }
 
+.random-container {
+  margin-top: 2em;
+}
+
 @media only screen and (max-width: 600px) {
   .result-item {
     flex-direction: column;
