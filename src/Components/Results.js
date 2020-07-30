@@ -143,8 +143,8 @@ class Results extends React.Component {
                       <Accordion defaultExpanded={true}>
                         <AccordionSummary
                           expandIcon={<ExpandMoreIcon />}
-                          aria-controls="panel1a-content"
-                          id="panel1a-header"
+                          aria-controls="descriptionPanel-content"
+                          id="descriptionPanel-header"
                         >
                           <Typography className={classes.heading}>Description</Typography>
                         </AccordionSummary>
@@ -157,8 +157,8 @@ class Results extends React.Component {
                       <Accordion>
                         <AccordionSummary
                           expandIcon={<ExpandMoreIcon />}
-                          aria-controls="panel1a-content"
-                          id="panel1a-header"
+                          aria-controls="mechanicsPanel-content"
+                          id="mechanicsPanel-header"
                         >
                           <Typography className={classes.heading}>Mechanics</Typography>
                         </AccordionSummary>
@@ -177,8 +177,8 @@ class Results extends React.Component {
                       <Accordion>
                         <AccordionSummary
                           expandIcon={<ExpandMoreIcon />}
-                          aria-controls="panel1a-content"
-                          id="panel1a-header"
+                          aria-controls="categoryPanel-content"
+                          id="categoryPanel-header"
                         >
                           <Typography className={classes.heading}>Categories</Typography>
                         </AccordionSummary>
