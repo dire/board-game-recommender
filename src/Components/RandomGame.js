@@ -34,6 +34,7 @@ class RandomGame extends React.Component {
         },
         (error) => {
           this.setState({
+            error,
           });
         }
       )
@@ -47,6 +48,7 @@ class RandomGame extends React.Component {
       },
       (error) => {
         this.setState({
+          error,
         });
       }
     )
@@ -79,7 +81,7 @@ class RandomGame extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, mechanics, categories, randomGame } = this.state;
+    const { mechanics, categories, randomGame } = this.state;
     const theme = createMuiTheme({
       palette: {
         primary: {
@@ -119,7 +121,7 @@ class RandomGame extends React.Component {
     }
     else if (this.state.isFetching || randomGame.length < 1) {
       return <div className="system-message">Fetching games from the shelf...</div>
-    } else {
+    } else if (this.state.isLoaded) {
       return (
         <div>
           <ThemeProvider theme={theme}>
@@ -190,10 +192,8 @@ class RandomGame extends React.Component {
                       <AccordionDetails>
                         <ul>
                         {randomGame.game.mechanics.map((mechanicItem, index) => (
-                          mechanics.map(function(mechanicObject){
-                            if (mechanicObject.id === mechanicItem.id) {
-                              return <li key={index}>{mechanicObject.name}</li>
-                            }
+                          mechanics.map(function(mechanicObject) {
+                            return mechanicObject.id === mechanicItem.id ? <li key={index}>{mechanicObject.name}</li> : ''
                           })
                         ))}
                         </ul>
@@ -211,21 +211,21 @@ class RandomGame extends React.Component {
                         <ul>
                           {randomGame.game.categories.map((categoryItem, index) => (
                             categories.map(function(categoryObject){
-                              if (categoryObject.id === categoryItem.id) {
-                                return <li key={index}>{categoryObject.name}</li>
-                              }
+                              return categoryObject.id === categoryItem.id ? <li key={index}>{categoryObject.name}</li> : ''
                             })
                           ))}
-                          </ul>
-                        </AccordionDetails>
-                      </Accordion>
-                    </div>
-                  </li>
+                        </ul>
+                      </AccordionDetails>
+                    </Accordion>
+                  </div>
+                </li>
               </ul>
             </div>
           </ThemeProvider>
         </div>
       )
+    } else {
+      return <div className="system-message">Something just went wrong...</div>
     }
   }
 }

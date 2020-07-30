@@ -57,7 +57,7 @@ class Results extends React.Component {
 
   render() {
     let items = this.props.results
-    const { error, isLoaded, mechanics, categories } = this.state;
+    const { mechanics, categories } = this.state;
     const theme = createMuiTheme({
       palette: {
         primary: {
@@ -166,9 +166,7 @@ class Results extends React.Component {
                           <ul>
                           {item.mechanics.map((mechanicItem, index) => (
                             mechanics.map(function(mechanicObject){
-                              if (mechanicObject.id === mechanicItem.id) {
-                                return <li key={index}>{mechanicObject.name}</li>
-                              }
+                              return mechanicObject.id === mechanicItem.id ? <li key={index}>{mechanicObject.name}</li> : ''
                             })
                           ))}
                           </ul>
@@ -186,12 +184,10 @@ class Results extends React.Component {
                           <ul>
                             {item.categories.map((categoryItem, index) => (
                               categories.map(function(categoryObject){
-                                if (categoryObject.id === categoryItem.id) {
-                                  return <li key={index}>{categoryObject.name}</li>
-                                }
+                                return categoryObject.id === categoryItem.id ? <li key={index}>{categoryObject.name}</li> : ''
                               })
                             ))}
-                            </ul>
+                          </ul>
                         </AccordionDetails>
                       </Accordion>
                     </div>
