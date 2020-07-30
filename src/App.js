@@ -4,6 +4,7 @@ import Container from '@material-ui/core/Container'
 import Footer from './Components/Footer'
 import TopBar from './Components/TopBar'
 import Wizard from './Components/Wizard/Wizard'
+import Random from './Components/Random'
 import Search from './Components/Search'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -78,6 +79,7 @@ class App extends React.Component {
           <Container className="main-content" maxWidth="lg">
             <Wizard activeView={this.state.activeView} />
             <Search activeView={this.state.activeView} />
+            <Random activeView={this.state.activeView} />
           </Container>
           <Container maxWidth="lg">
             <Footer />
