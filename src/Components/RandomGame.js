@@ -10,6 +10,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import DieIcon from '@material-ui/icons/Casino';
+import Grid from '@material-ui/core/Grid';
 
 class RandomGame extends React.Component {
   constructor(props) {
@@ -106,16 +107,6 @@ class RandomGame extends React.Component {
       },
     });
 
-    const classes = makeStyles((theme) => ({
-      root: {
-        width: '100%',
-      },
-      heading: {
-        fontSize: theme.typography.pxToRem(15),
-        fontWeight: theme.typography.fontWeightRegular,
-      },
-    }));
-
     if (this.state.error) {
       return <div className="system-message">Error happened...</div>
     }
@@ -125,7 +116,9 @@ class RandomGame extends React.Component {
       return (
         <div>
           <ThemeProvider theme={theme}>
-            <Button variant="contained"  onClick={() => { this.getRandomGame() }}><DieIcon />Get random game</Button>
+            <Grid className="button-random" xs={12} justify="center" container>
+              <Button variant="contained" color="primary" onClick={() => { this.getRandomGame() }}><DieIcon />Get random game</Button>
+            </Grid>
             <div className="results">
               <ul>
                 <li className="result-item" key={randomGame.game.id}>
@@ -173,7 +166,7 @@ class RandomGame extends React.Component {
                         aria-controls="descriptionPanel-content"
                         id="descriptionPanel-header"
                       >
-                        <Typography className={classes.heading}>Description</Typography>
+                        <Typography>Description</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
                         <Typography>
@@ -187,7 +180,7 @@ class RandomGame extends React.Component {
                         aria-controls="mechanicsPanel-content"
                         id="mechanicsPanel-header"
                       >
-                        <Typography className={classes.heading}>Mechanics</Typography>
+                        <Typography>Mechanics</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
                         <ul>
@@ -205,7 +198,7 @@ class RandomGame extends React.Component {
                         aria-controls="categoryPanel-content"
                         id="categoryPanel-header"
                       >
-                        <Typography className={classes.heading}>Categories</Typography>
+                        <Typography>Categories</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
                         <ul>
