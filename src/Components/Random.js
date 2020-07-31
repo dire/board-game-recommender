@@ -21,7 +21,12 @@ class Random extends React.Component {
     if (this.props.activeView === 'random') {
       return (
         <Grid className="random-container" container justify="center">
-          <Typography variant="h3">Roll the dice and find a random game</Typography>
+          <Grid container justify="center">
+            <Typography variant="h3">Find a random game</Typography>
+          </Grid>
+          <Grid container justify="center">
+            <Typography variant="h4">Let the dice decide</Typography>
+          </Grid>
           <RandomGame />
         </Grid>
       )
