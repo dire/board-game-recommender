@@ -14,8 +14,39 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeView: 'wizard'
+      activeView: 'wizard',
+      mechanics: [],
+      categories: [],
     }
+  }
+
+  componentDidMount() {
+    fetch("https://blooming-temple-02451.herokuapp.com/mechanics.php")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            mechanics: result.mechanics
+          });
+        },
+        (error) => {
+          this.setState({
+          });
+        }
+      )
+    fetch("https://blooming-temple-02451.herokuapp.com/categories.php")
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          categories: result.categories
+        });
+      },
+      (error) => {
+
+      }
+    )
+
   }
 
   changeActiveView(newActiveView) {
@@ -77,9 +108,9 @@ class App extends React.Component {
           <GlobalCss />
           <TopBar selectActiveView={this.changeActiveView.bind(this)} />
           <Container className="main-content" maxWidth="lg">
-            <Wizard activeView={this.state.activeView} />
-            <Search activeView={this.state.activeView} />
-            <Random activeView={this.state.activeView} />
+            <Wizard activeView={this.state.activeView} mechanics={this.state.mechanics} categories={this.state.categories} />
+            <Search activeView={this.state.activeView} mechanics={this.state.mechanics} categories={this.state.categories} />
+            <Random activeView={this.state.activeView} mechanics={this.state.mechanics} categories={this.state.categories} />
           </Container>
           <Container maxWidth="lg">
             <Footer />

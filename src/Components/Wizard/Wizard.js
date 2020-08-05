@@ -21,6 +21,10 @@ class Wizard extends React.Component {
     })
   }
 
+  componentDidMount() {
+
+  }
+
   getGames (playerCount, playTime, theme) {
     let playerCountParameter = ''
     let categories = theme ? 'categories=' + theme : '';
@@ -77,7 +81,7 @@ class Wizard extends React.Component {
       return (
         <div>
           <Stepper onFinish={this.getGames.bind(this)} />
-          <Results results={this.state.resultItems} isFetching={this.state.isFetching} />
+          <Results results={this.state.resultItems} isFetching={this.state.isFetching} mechanics={this.props.mechanics} categories={this.props.categories} />
         </div>
       )
     } else {

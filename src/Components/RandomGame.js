@@ -7,7 +7,6 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import DieIcon from '@material-ui/icons/Casino';
 import Grid from '@material-ui/core/Grid';
@@ -25,34 +24,6 @@ class RandomGame extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://blooming-temple-02451.herokuapp.com/mechanics.php")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            mechanics: result.mechanics
-          });
-        },
-        (error) => {
-          this.setState({
-            error,
-          });
-        }
-      )
-    fetch("https://blooming-temple-02451.herokuapp.com/categories.php")
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.setState({
-          categories: result.categories
-        });
-      },
-      (error) => {
-        this.setState({
-          error,
-        });
-      }
-    )
     this.setState({
       isFetching: true,
     });
@@ -82,7 +53,9 @@ class RandomGame extends React.Component {
   }
 
   render() {
-    const { mechanics, categories, randomGame } = this.state;
+    let categories = this.props.categories
+    let mechanics = this.props.mechanics
+    const { randomGame } = this.state;
     const theme = createMuiTheme({
       palette: {
         primary: {
@@ -116,8 +89,10 @@ class RandomGame extends React.Component {
       return (
         <div>
           <ThemeProvider theme={theme}>
-            <Grid className="button-random" xs={12} justify="center" container>
-              <Button variant="contained" color="primary" onClick={() => { this.getRandomGame() }}><DieIcon />Get random game</Button>
+            <Grid className="button-random" container>
+              <Grid item xs={12}>
+                <Button variant="contained" color="primary" onClick={() => { this.getRandomGame() }}><DieIcon />Get random game</Button>
+              </Grid>
             </Grid>
             <div className="results">
               <ul>

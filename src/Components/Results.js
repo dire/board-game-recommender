@@ -20,44 +20,10 @@ class Results extends React.Component {
     };
   }
 
-  componentDidMount() {
-    fetch("https://blooming-temple-02451.herokuapp.com/mechanics.php")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            mechanics: result.mechanics
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
-    fetch("https://blooming-temple-02451.herokuapp.com/categories.php")
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.setState({
-          isLoaded: true,
-          categories: result.categories
-        });
-      },
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      }
-    )
-  }
-
   render() {
     let items = this.props.results
-    const { mechanics, categories } = this.state;
+    let mechanics = this.props.mechanics
+    let categories = this.props.categories
     const theme = createMuiTheme({
       palette: {
         primary: {

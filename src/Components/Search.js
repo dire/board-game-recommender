@@ -114,7 +114,7 @@ class Search extends React.Component {
         return (
           <div className="search">
             <Filters submitFilters={this.getFilters.bind(this)} />
-            <Results results={items} isFetching={isFetching} />
+            <Results results={items} isFetching={isFetching} mechanics={this.props.mechanics} categories={this.props.categories} />
           </div>
         );
       }

@@ -141,6 +141,7 @@ h1 {
 
 .button-random {
   margin-top: 2em;
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
