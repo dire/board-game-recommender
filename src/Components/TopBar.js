@@ -81,8 +81,8 @@ export default function TopBar(props) {
             Board Game Recommendation App - Find the next game to play
           </Typography>
           <Button className={classes.topBarButton} color="inherit" onClick={selectActiveView} value="wizard"><TimelineIcon className={classes.menuIcon} />Simple</Button>
-          <Button className={classes.topBarButton} color="inherit" onClick={selectActiveView} value="detailedSearch"><TuneIcon className={classes.menuIcon} />Detailed search</Button>
-          <Button className={classes.topBarButton} color="inherit" onClick={selectActiveView} value="random"><DieIcon className={classes.menuIcon} />Random game</Button>
+          <Button className={classes.topBarButton} color="inherit" onClick={selectActiveView} value="detailedSearch"><TuneIcon className={classes.menuIcon} />Detailed</Button>
+          <Button className={classes.topBarButton} color="inherit" onClick={selectActiveView} value="random"><DieIcon className={classes.menuIcon} />Random</Button>
         </Toolbar>
       </AppBar>
     </div>
