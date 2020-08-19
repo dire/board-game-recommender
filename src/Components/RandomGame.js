@@ -55,7 +55,7 @@ class RandomGame extends React.Component {
   render() {
     let categories = this.props.categories
     let mechanics = this.props.mechanics
-    const { randomGame } = this.state;
+    const { randomGame } = this.state
     const theme = createMuiTheme({
       palette: {
         primary: {
@@ -86,6 +86,7 @@ class RandomGame extends React.Component {
     else if (this.state.isFetching || randomGame.length < 1) {
       return <div className="system-message">Fetching games from the shelf...</div>
     } else if (this.state.isLoaded) {
+      let game = randomGame.games[0]
       return (
         <div>
           <ThemeProvider theme={theme}>
@@ -96,40 +97,40 @@ class RandomGame extends React.Component {
             </Grid>
             <div className="results">
               <ul>
-                <li className="result-item" key={randomGame.game.id}>
+                <li className="result-item" key={game.id}>
                   <div className="game-thumbnail">
-                    <img className="thumbnail" src={randomGame.game.thumb_url} alt={randomGame.game.name} />
+                    <img className="thumbnail" src={game.thumb_url} alt={game.name} />
                   </div>
                   <div className="game-info">
-                    <h2 className="game-title">{randomGame.game.name}</h2>
+                    <h2 className="game-title">{game.name}</h2>
                     <div className="game-details">
                       <div className="game-detail">
-                        <span className="detail-title">MSRP:</span> ${randomGame.game.msrp}
+                        <span className="detail-title">MSRP:</span> ${game.msrp}
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Year:</span> {randomGame.game.year_published}
+                        <span className="detail-title">Year:</span> {game.year_published}
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Players:</span> {randomGame.game.min_players} - {randomGame.game.max_players}
+                        <span className="detail-title">Players:</span> {game.min_players} - {game.max_players}
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Primary publisher:</span> {randomGame.game.primary_publisher}
+                        <span className="detail-title">Primary publisher:</span> {game.primary_publisher}
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Designers:</span> {randomGame.game.designers.join(', ')}
+                        <span className="detail-title">Designers:</span> {game.designers.join(', ')}
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Playtime:</span> {randomGame.game.min_playtime} - {randomGame.game.max_playtime} min
+                        <span className="detail-title">Playtime:</span> {game.min_playtime} - {game.max_playtime} min
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Min age:</span> {randomGame.game.min_age}
+                        <span className="detail-title">Min age:</span> {game.min_age}
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Avg. rating:</span> {randomGame.game.average_user_rating.toFixed(2)} ({randomGame.game.num_user_ratings})
+                        <span className="detail-title">Avg. rating:</span> {game.average_user_rating.toFixed(2)} ({game.num_user_ratings})
                       </div>
                       <div className="game-detail">
                         <span className="detail-title">
-                          <Link href={randomGame.game.url} target="_blank">
+                          <Link href={game.url} target="_blank">
                             BGA Link
                           </Link>
                         </span>
@@ -145,7 +146,7 @@ class RandomGame extends React.Component {
                       </AccordionSummary>
                       <AccordionDetails>
                         <Typography>
-                          <span className="game-description" dangerouslySetInnerHTML={{__html: randomGame.game.description}}></span>
+                          <span className="game-description" dangerouslySetInnerHTML={{__html: game.description}}></span>
                         </Typography>
                       </AccordionDetails>
                     </Accordion>
@@ -159,7 +160,7 @@ class RandomGame extends React.Component {
                       </AccordionSummary>
                       <AccordionDetails>
                         <ul>
-                        {randomGame.game.mechanics.map((mechanicItem, index) => (
+                        {game.mechanics.map((mechanicItem, index) => (
                           mechanics.map(function(mechanicObject) {
                             return mechanicObject.id === mechanicItem.id ? <li key={index}>{mechanicObject.name}</li> : ''
                           })
@@ -177,7 +178,7 @@ class RandomGame extends React.Component {
                       </AccordionSummary>
                       <AccordionDetails>
                         <ul>
-                          {randomGame.game.categories.map((categoryItem, index) => (
+                          {game.categories.map((categoryItem, index) => (
                             categories.map(function(categoryObject){
                               return categoryObject.id === categoryItem.id ? <li key={index}>{categoryObject.name}</li> : ''
                             })
