@@ -139,6 +139,10 @@ h1 {
   margin-top: 2em;
 }
 
+.random-container h3 {
+  text-align: center;
+}
+
 .button-random {
   margin-top: 2em;
   text-align: center;
