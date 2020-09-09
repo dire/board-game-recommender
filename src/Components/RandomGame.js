@@ -1,6 +1,4 @@
 import React from 'react'
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
 import Link from '@material-ui/core/Link'
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -56,29 +54,6 @@ class RandomGame extends React.Component {
     let categories = this.props.categories
     let mechanics = this.props.mechanics
     const { randomGame } = this.state
-    const theme = createMuiTheme({
-      palette: {
-        primary: {
-          // light: will be calculated from palette.primary.main,
-          main: '#009688',
-          // dark: will be calculated from palette.primary.main,
-          // contrastText: will be calculated to contrast with palette.primary.main
-        },
-        secondary: {
-          light: '#0066ff',
-          main: '#0044ff',
-          // dark: will be calculated from palette.secondary.main,
-          contrastText: '#ffcc00',
-        },
-        // Used by `getContrastText()` to maximize the contrast between
-        // the background and the text.
-        contrastThreshold: 3,
-        // Used by the functions below to shift a color's luminance by approximately
-        // two indexes within its tonal palette.
-        // E.g., shift from Red 500 to Red 300 or Red 700.
-        tonalOffset: 0.2,
-      },
-    });
 
     if (this.state.error) {
       return <div className="system-message">Error happened...</div>
@@ -89,108 +64,106 @@ class RandomGame extends React.Component {
       let game = randomGame.games[0]
       return (
         <div>
-          <ThemeProvider theme={theme}>
-            <Grid className="button-random" container>
-              <Grid item xs={12}>
-                <Button variant="contained" color="primary" onClick={() => { this.getRandomGame() }}><DieIcon />Get random game</Button>
-              </Grid>
+          <Grid className="button-random" container>
+            <Grid item xs={12}>
+              <Button variant="contained" color="primary" onClick={() => { this.getRandomGame() }}><DieIcon />Get random game</Button>
             </Grid>
-            <div className="results">
-              <ul>
-                <li className="result-item" key={game.id}>
-                  <div className="game-thumbnail">
-                    <img className="thumbnail" src={game.thumb_url} alt={game.name} />
-                  </div>
-                  <div className="game-info">
-                    <h2 className="game-title">{game.name}</h2>
-                    <div className="game-details">
-                      <div className="game-detail">
-                        <span className="detail-title">MSRP:</span> ${game.msrp}
-                      </div>
-                      <div className="game-detail">
-                        <span className="detail-title">Year:</span> {game.year_published}
-                      </div>
-                      <div className="game-detail">
-                        <span className="detail-title">Players:</span> {game.min_players} - {game.max_players}
-                      </div>
-                      <div className="game-detail">
-                        <span className="detail-title">Primary publisher:</span> {game.primary_publisher}
-                      </div>
-                      <div className="game-detail">
-                        <span className="detail-title">Designers:</span> {game.designers.join(', ')}
-                      </div>
-                      <div className="game-detail">
-                        <span className="detail-title">Playtime:</span> {game.min_playtime} - {game.max_playtime} min
-                      </div>
-                      <div className="game-detail">
-                        <span className="detail-title">Min age:</span> {game.min_age}
-                      </div>
-                      <div className="game-detail">
-                        <span className="detail-title">Avg. rating:</span> {game.average_user_rating.toFixed(2)} ({game.num_user_ratings})
-                      </div>
-                      <div className="game-detail">
-                        <span className="detail-title">
-                          <Link href={game.url} target="_blank">
-                            BGA Link
-                          </Link>
-                        </span>
-                      </div>
+          </Grid>
+          <div className="results">
+            <ul>
+              <li className="result-item" key={game.id}>
+                <div className="game-thumbnail">
+                  <img className="thumbnail" src={game.thumb_url} alt={game.name} />
+                </div>
+                <div className="game-info">
+                  <h2 className="game-title">{game.name}</h2>
+                  <div className="game-details">
+                    <div className="game-detail">
+                      <span className="detail-title">MSRP:</span> ${game.msrp}
                     </div>
-                    <Accordion defaultExpanded={true}>
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="descriptionPanel-content"
-                        id="descriptionPanel-header"
-                      >
-                        <Typography>Description</Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <Typography>
-                          <span className="game-description" dangerouslySetInnerHTML={{__html: game.description}}></span>
-                        </Typography>
-                      </AccordionDetails>
-                    </Accordion>
-                    <Accordion>
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="mechanicsPanel-content"
-                        id="mechanicsPanel-header"
-                      >
-                        <Typography>Mechanics</Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <ul>
-                        {game.mechanics.map((mechanicItem, index) => (
-                          mechanics.map(function(mechanicObject) {
-                            return mechanicObject.id === mechanicItem.id ? <li key={index}>{mechanicObject.name}</li> : ''
+                    <div className="game-detail">
+                      <span className="detail-title">Year:</span> {game.year_published}
+                    </div>
+                    <div className="game-detail">
+                      <span className="detail-title">Players:</span> {game.min_players} - {game.max_players}
+                    </div>
+                    <div className="game-detail">
+                      <span className="detail-title">Primary publisher:</span> {game.primary_publisher}
+                    </div>
+                    <div className="game-detail">
+                      <span className="detail-title">Designers:</span> {game.designers.join(', ')}
+                    </div>
+                    <div className="game-detail">
+                      <span className="detail-title">Playtime:</span> {game.min_playtime} - {game.max_playtime} min
+                    </div>
+                    <div className="game-detail">
+                      <span className="detail-title">Min age:</span> {game.min_age}
+                    </div>
+                    <div className="game-detail">
+                      <span className="detail-title">Avg. rating:</span> {game.average_user_rating.toFixed(2)} ({game.num_user_ratings})
+                    </div>
+                    <div className="game-detail">
+                      <span className="detail-title">
+                        <Link href={game.url} target="_blank">
+                          BGA Link
+                        </Link>
+                      </span>
+                    </div>
+                  </div>
+                  <Accordion defaultExpanded={true}>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="descriptionPanel-content"
+                      id="descriptionPanel-header"
+                    >
+                      <Typography>Description</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        <span className="game-description" dangerouslySetInnerHTML={{__html: game.description}}></span>
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="mechanicsPanel-content"
+                      id="mechanicsPanel-header"
+                    >
+                      <Typography>Mechanics</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                      {game.mechanics.map((mechanicItem, index) => (
+                        mechanics.map(function(mechanicObject) {
+                          return mechanicObject.id === mechanicItem.id ? <li key={index}>{mechanicObject.name}</li> : ''
+                        })
+                      ))}
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="categoryPanel-content"
+                      id="categoryPanel-header"
+                    >
+                      <Typography>Categories</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        {game.categories.map((categoryItem, index) => (
+                          categories.map(function(categoryObject){
+                            return categoryObject.id === categoryItem.id ? <li key={index}>{categoryObject.name}</li> : ''
                           })
                         ))}
-                        </ul>
-                      </AccordionDetails>
-                    </Accordion>
-                    <Accordion>
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="categoryPanel-content"
-                        id="categoryPanel-header"
-                      >
-                        <Typography>Categories</Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <ul>
-                          {game.categories.map((categoryItem, index) => (
-                            categories.map(function(categoryObject){
-                              return categoryObject.id === categoryItem.id ? <li key={index}>{categoryObject.name}</li> : ''
-                            })
-                          ))}
-                        </ul>
-                      </AccordionDetails>
-                    </Accordion>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </ThemeProvider>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       )
     } else {
