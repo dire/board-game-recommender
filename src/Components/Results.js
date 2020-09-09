@@ -6,6 +6,7 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 
 class Results extends React.Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class Results extends React.Component {
     }));
 
     if (this.props.isFetching) {
-      return <div className="system-message">Fetching games from the shelf...</div>
+      return <Paper elevation={3} className="system-message">Fetching games from the shelf...</Paper>
     } else {
       return (
         <div>
