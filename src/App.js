@@ -13,6 +13,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import teal from '@material-ui/core/colors/teal';
 import blue from '@material-ui/core/colors/blue';
 import Box from '@material-ui/core/Box';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const AppWrapper = (props) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -41,6 +42,21 @@ const AppWrapper = (props) => {
           // two indexes within its tonal palette.
           // E.g., shift from Red 500 to Red 300 or Red 700.
           tonalOffset: 0.2,
+        },
+        typography: {
+          fontFamily: [
+            'Source Sans Pro',
+            '-apple-system',
+            'BlinkMacSystemFont',
+            '"Segoe UI"',
+            'Roboto',
+            '"Helvetica Neue"',
+            'Arial',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+          ].join(','),
         },
       }),
     [prefersDarkMode],
@@ -73,19 +89,20 @@ const AppWrapper = (props) => {
 
   return (
     <ThemeProvider theme={theme}>
-    <Box bgcolor={theme.palette.background.default}>
-      <GlobalCss />
-      <TopBar selectActiveView={props.changeView.bind(this)} />
-      <Container className="main-content" maxWidth="lg">
-        <Wizard activeView={props.activeView} mechanics={props.mechanics} categories={props.categories} />
-        <Search activeView={props.activeView} mechanics={props.mechanics} categories={props.categories} />
-        <Random activeView={props.activeView} mechanics={props.mechanics} categories={props.categories} />
-      </Container>
-      <Container maxWidth="lg">
-        <Footer />
-      </Container>
-    </Box>
-  </ThemeProvider>
+      <CssBaseline/>
+      <Box bgcolor={theme.palette.background.default}>
+        <GlobalCss />
+        <TopBar selectActiveView={props.changeView.bind(this)} />
+        <Container className="main-content" maxWidth="lg">
+          <Wizard activeView={props.activeView} mechanics={props.mechanics} categories={props.categories} />
+          <Search activeView={props.activeView} mechanics={props.mechanics} categories={props.categories} />
+          <Random activeView={props.activeView} mechanics={props.mechanics} categories={props.categories} />
+        </Container>
+        <Container maxWidth="lg">
+          <Footer />
+        </Container>
+      </Box>
+    </ThemeProvider>
   )
 }
 
