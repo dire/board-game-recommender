@@ -84,6 +84,12 @@ const AppWrapper = (props) => {
       '.MuiSlider-mark': {
         height: 4
       },
+      '.MuiToggleButton-root' : {
+        color: 'rgba(255, 255, 255, 0.38)'
+      },
+      '.MuiToggleButton-root.Mui-selected': {
+        color: "#fff"
+      }
     }
   })(() => null);
 

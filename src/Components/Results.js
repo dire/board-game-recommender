@@ -12,6 +12,14 @@ import DescriptionIcon from '@material-ui/icons/Description'
 import CategoryIcon from '@material-ui/icons/Category'
 import SettingsIcon from '@material-ui/icons/Settings'
 
+const GameDetail = (props) => {
+  return (
+  <Box className="game-detail" py={1} px={2}>
+    <Box fontWeight={700}>{props.title}</Box> {props.detail}
+  </Box>
+  )
+}
+
 class Results extends React.Component {
   constructor(props) {
     super(props)
@@ -37,46 +45,30 @@ class Results extends React.Component {
             <ul>
               {items && items.map((item, index) => (
                 <li className="result-item" key={item.id}>
-                  <div className="game-thumbnail">
+                  <Box className="game-thumbnail" p={2}>
                     <img className="thumbnail" src={item.thumb_url} alt={item.name} />
-                  </div>
+                  </Box>
                   <div className="game-info">
                     <Box pr={1} display="inline">
                       <Typography color="textSecondary" display="inline" fontSize="h6.fontSize">#{index + 1}</Typography>
                     </Box>
                     <Typography display="inline" variant="h6" component="h2">{item.name}</Typography>
                     <Paper className="game-details">
-                      <div className="game-detail">
-                        <Box fontWeight={700}>MSRP:</Box> ${item.msrp}
-                      </div>
-                      <div className="game-detail">
-                        <Box fontWeight={700}>Year:</Box> {item.year_published}
-                      </div>
-                      <div className="game-detail">
-                        <Box fontWeight={700}>Players:</Box> {item.min_players} - {item.max_players}
-                      </div>
-                      <div className="game-detail">
-                        <Box fontWeight={700}>Primary publisher:</Box> {item.primary_publisher}
-                      </div>
-                      <div className="game-detail">
-                        <Box fontWeight={700}>Designers:</Box> {item.designers.join(', ')}
-                      </div>
-                      <div className="game-detail">
-                        <Box fontWeight={700}>Playtime:</Box> {item.min_playtime} - {item.max_playtime} min
-                      </div>
-                      <div className="game-detail">
-                        <Box fontWeight={700}>Min age:</Box> {item.min_age}
-                      </div>
-                      <div className="game-detail">
-                        <Box fontWeight={700}>Avg. rating:</Box> {item.average_user_rating.toFixed(2)} ({item.num_user_ratings})
-                      </div>
-                      <div className="game-detail">
+                      <GameDetail title={"MSRP"} detail={"$" + item.msrp} />
+                      <GameDetail title={"Year"} detail={item.year_published} />
+                      <GameDetail title={"Players"} detail={item.min_players + " - " + item.max_players} />
+                      <GameDetail title={"Primary publisher"} detail={item.primary_publisher} />
+                      <GameDetail title={"Designers"} detail={item.designers.join(', ')} />
+                      <GameDetail title={"Playtime"} detail={item.min_playtime + " - " + item.max_playtime} />
+                      <GameDetail title={"Min age"} detail={item.min_age} />
+                      <GameDetail title={"Avg. rating"} detail={item.average_user_rating.toFixed(2) + " (" + item.num_user_ratings + ")"} />
+                      <Box className="game-detail" py={1} px={2}>
                         <Box fontWeight={700}>
                           <Link href={item.url} target="_blank">
                             BGA Link
                           </Link>
                         </Box>
-                      </div>
+                      </Box>
                     </Paper>
                     <Accordion defaultExpanded={true}>
                       <AccordionSummary

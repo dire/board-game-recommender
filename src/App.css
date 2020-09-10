@@ -1,15 +1,7 @@
 * { margin: 0; padding: 0; }
 
-main {
-  margin: 0 auto;
-}
-
 .main-content {
   min-height: 50vh;
-}
-
-.search-filters {
-  margin-bottom: 50px;
 }
 
 .search-filters fieldset {
@@ -19,29 +11,11 @@ main {
   border-radius: 4px;
 }
 
-.search-filters fieldset legend {
-  font-size: 20px;
-  font-weight: bold;
-  padding: 0 15px;
-}
-
-.submit-filters {
-  text-align: center;
-}
-
-.filter {
-  padding: 10px 0;
-}
-
 .sort-section {
   border: 1px solid lightgray;
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
-}
-
-.sorting {
-  text-align: right;
 }
 
 .results .thumbnail {
@@ -60,10 +34,6 @@ ul {
   border-bottom: 1px solid darkgray;
 }
 
-.result-item .game-thumbnail {
-  padding: 20px;
-}
-
 .result-item .game-info {
   padding: 0 20px 20px 0;
 }
@@ -78,10 +48,6 @@ ul {
   margin-top: 20px;
   padding: 10px 20px 10px 0;
   border-radius: 4px;
-}
-
-.game-detail {
-  padding: 10px 20px;
 }
 
 /* TYPOGRAPHY */
@@ -119,7 +85,6 @@ h1 {
 
   .game-detail {
     width: calc(50% - 20px);
-    padding: 10px;
   }
 
   .result-item .game-info {

@@ -7,6 +7,7 @@ import MechanicSelect from './MechanicSelect'
 import CategorySelect from './CategorySelect'
 import Sorting from './Sorting'
 import OrderSwitch from './OrderSwitch'
+import Box from '@material-ui/core/Box'
 
 class Filters extends React.Component {
   constructor(props) {
@@ -96,26 +97,26 @@ class Filters extends React.Component {
     if (error) {
       return <div>Error: {error.message}</div>
     } else if (!isLoaded) {
-      return <div>Fetching games from the shelf...</div>
+      return <div>Loading filters...</div>
     } else {
       return (
         <form className="search-filters">
           <fieldset>
-            <legend>Filters</legend>
-            <div className="filter"><MechanicSelect handleChange={this.updateFilters.bind(this)} options={mechanics} /></div>
-            <div className="filter"><CategorySelect handleChange={this.updateFilters.bind(this)} options={categories} /></div>
-            <div className="filter">Players: <SelectPlayerCount handleChange={this.updateFilters.bind(this)} /></div>
-            <div className="filter">Playtime: <PlaytimeSlider handleChange={this.updateFilters.bind(this)} /></div>
-            <div className="filter">Release year: <SelectYear handleChange={this.updateFilters.bind(this)} /></div>
+            <legend><Box px={2} fontWeight={700} fontSize="h6.fontSize">Filters</Box></legend>
+            <Box py={1} className="filter"><MechanicSelect handleChange={this.updateFilters.bind(this)} options={mechanics} /></Box>
+            <Box py={1} className="filter"><CategorySelect handleChange={this.updateFilters.bind(this)} options={categories} /></Box>
+            <Box py={1} className="filter">Players: <SelectPlayerCount handleChange={this.updateFilters.bind(this)} /></Box>
+            <Box py={1} className="filter">Playtime: <PlaytimeSlider handleChange={this.updateFilters.bind(this)} /></Box>
+            <Box py={1} className="filter">Release year: <SelectYear handleChange={this.updateFilters.bind(this)} /></Box>
           </fieldset>
           <fieldset>
-            <legend>Sorting</legend>
+            <legend><Box px={2} fontWeight={700} fontSize="h6.fontSize">Sorting</Box></legend>
             <Sorting key="sorting" updateSort={this.updateFilters.bind(this)} />
             <OrderSwitch key="ordering" handleChange={this.updateFilters.bind(this)} />
           </fieldset>
-          <div className="submit-filters">
+          <Box textAlign="center">
             <Button variant="contained" color="primary" onClick={this.submitFilters.bind(this)}>Search!</Button>
-          </div>
+          </Box>
         </form>
       )
     }
