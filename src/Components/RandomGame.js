@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import FetchingMessage from './FetchingMessage'
+import GameDetail from './GameDetail'
 import DescriptionIcon from '@material-ui/icons/Description'
 import CategoryIcon from '@material-ui/icons/Category'
 import SettingsIcon from '@material-ui/icons/Settings'
@@ -85,36 +86,20 @@ class RandomGame extends React.Component {
           <div className="results">
             <ul>
               <li className="result-item" key={game.id}>
-                <div className="game-thumbnail">
+                <Box className="game-thumbnail" p={2}>
                   <img className="thumbnail" src={game.thumb_url} alt={game.name} />
-                </div>
+                </Box>
                 <div className="game-info">
                   <Typography display="inline" variant="h6" component="h2">{game.name}</Typography>
                   <Paper className="game-details">
-                    <div className="game-detail">
-                      <Box fontWeight={700}>MSRP:</Box> ${game.msrp}
-                    </div>
-                    <div className="game-detail">
-                      <Box fontWeight={700}>Year:</Box> {game.year_published}
-                    </div>
-                    <div className="game-detail">
-                      <Box fontWeight={700}>Players:</Box> {game.min_players} - {game.max_players}
-                    </div>
-                    <div className="game-detail">
-                      <Box fontWeight={700}>Primary publisher:</Box> {game.primary_publisher}
-                    </div>
-                    <div className="game-detail">
-                      <Box fontWeight={700}>Designers:</Box> {game.designers.join(', ')}
-                    </div>
-                    <div className="game-detail">
-                      <Box fontWeight={700}>Playtime:</Box> {game.min_playtime} - {game.max_playtime} min
-                    </div>
-                    <div className="game-detail">
-                      <Box fontWeight={700}>Min age:</Box> {game.min_age}
-                    </div>
-                    <div className="game-detail">
-                      <Box fontWeight={700}>Avg. rating:</Box> {game.average_user_rating.toFixed(2)} ({game.num_user_ratings})
-                    </div>
+                    <GameDetail title={"MSRP"} detail={"$" + game.msrp} />
+                    <GameDetail title={"Year"} detail={game.year_published} />
+                    <GameDetail title={"Players"} detail={game.min_players + " - " + game.max_players} />
+                    <GameDetail title={"Primary publisher"} detail={game.primary_publisher} />
+                    <GameDetail title={"Designers"} detail={game.designers.join(', ')} />
+                    <GameDetail title={"Playtime"} detail={game.min_playtime + " - " + game.max_playtime} />
+                    <GameDetail title={"Min age"} detail={game.min_age} />
+                    <GameDetail title={"Avg. rating"} detail={game.average_user_rating.toFixed(2) + " (" + game.num_user_ratings + ")"} />
                     <div className="game-detail">
                       <Box fontWeight={700}>
                         <Link href={game.url} target="_blank">
