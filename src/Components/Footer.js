@@ -2,6 +2,7 @@ import React from 'react'
 import Link from '@material-ui/core/Link';
 import pkg from '../../package.json';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -16,9 +17,9 @@ export default function Footer() {
 
   return (
     <footer className={classes.footer}>
-      <p>Made by: <Link href="https://github.com/dire">dire</Link> | Copyright © {(new Date().getFullYear())}</p>
-      <p>Data is fetched from <Link href="https://www.boardgameatlas.com/">Board Game Atlas</Link> API</p>
-      <p className="version">v{pkg.version}</p>
+      <Typography variant="body2">Made by: <Link href="https://github.com/dire">dire</Link> | Copyright © {(new Date().getFullYear())}</Typography>
+      <Typography variant="body2">Data is fetched from <Link href="https://www.boardgameatlas.com/">Board Game Atlas</Link> API</Typography>
+      <Typography variant="body2">v{pkg.version}</Typography>
     </footer>
   )
 }
