@@ -25,7 +25,7 @@ class Random extends React.Component {
             <Typography variant="h3">Find a random game</Typography>
           </Grid>
           <Grid container justify="center">
-            <Typography variant="h4">Let the dice decide</Typography>
+            <Typography variant="h4" color="textSecondary">Let the dice decide</Typography>
           </Grid>
           <RandomGame mechanics={this.props.mechanics} categories={this.props.categories} />
         </Grid>

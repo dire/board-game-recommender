@@ -11,22 +11,13 @@ const useStyles = makeStyles(theme => ({
   buttonGroup: {
     backgroundColor: theme.palette.primary.main,
   },
-  toggleButton: {
-    color: 'white',
-    '&:hover': {
-      backgroundColor: "rgba(0, 0, 0, 0.12)",
-    },
-    '&.Mui-selected': {
-      color: "white",
-    }
-  }
 }));
 
 export default function ToggleButtons(props) {
-  const [alignment, setAlignment] = React.useState('left');
+  const [chosenValue, setChosenValue] = React.useState(props.options[1].value);
 
   const onOptionSelected = (event, newAlignment) => {
-    setAlignment(newAlignment);
+    setChosenValue(newAlignment);
     props.onSelect(props.step, event.currentTarget.value);
   };
 
@@ -38,13 +29,13 @@ export default function ToggleButtons(props) {
         <div className={classes.toggleContainer}>
           <ToggleButtonGroup
             className={classes.buttonGroup}
-            value={alignment}
+            value={chosenValue}
             exclusive
             onChange={onOptionSelected}
             aria-label="text alignment"
           >
             {props.options.map((item) =>
-              <ToggleButton className={classes.toggleButton} onClick={onOptionSelected} value={item.value} variant="contained" color="primary" key={item.value}>{item.label}</ToggleButton>
+              <ToggleButton onClick={onOptionSelected} value={item.value} variant="contained" color="primary" key={item.value}>{item.label}</ToggleButton>
             )}
           </ToggleButtonGroup>
         </div>
