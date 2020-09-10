@@ -1,6 +1,7 @@
 import React from 'react'
 import Filters from './Filters'
 import Results from './Results'
+import FetchingMessage from './FetchingMessage'
 
 class Search extends React.Component {
   constructor(props) {
@@ -107,9 +108,9 @@ class Search extends React.Component {
     if (this.props.activeView === 'detailedSearch') {
       const { error, isLoaded, items, isFetching } = this.state
       if (error) {
-        return <div className="system-message">Error: {error.message}</div>
+        return <FetchingMessage message={"Error: " + error.message} />
       } else if (!isLoaded) {
-        return <div className="system-message">Fetching games from the shelf...</div>
+        return <FetchingMessage message={"Fetching games from the shelf.."} />
       } else {
         return (
           <div className="search">

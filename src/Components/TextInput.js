@@ -1,13 +1,6 @@
 import React from 'react'
 
 class TextField extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  }
-
   onChange(e) {
     this.props.onChange(this.props.filter, e.target.value)
   }
@@ -18,6 +11,5 @@ class TextField extends React.Component {
     )
   }
 }
-
 
 export default TextField

@@ -10,6 +10,7 @@ import DieIcon from '@material-ui/icons/Casino';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
+import FetchingMessage from './FetchingMessage'
 
 class RandomGame extends React.Component {
   constructor(props) {
@@ -58,10 +59,10 @@ class RandomGame extends React.Component {
     const { randomGame } = this.state
 
     if (this.state.error) {
-      return <div className="system-message">Error happened...</div>
+      return <FetchingMessage message={"Error while fetching games"} />
     }
     else if (this.state.isFetching || randomGame.length < 1) {
-      return <div className="system-message">Fetching games from the shelf...</div>
+      return <FetchingMessage message={"Fetching games from the shelf"} />
     } else if (this.state.isLoaded) {
       let game = randomGame.games[0]
       return (
@@ -169,7 +170,7 @@ class RandomGame extends React.Component {
         </div>
       )
     } else {
-      return <div className="system-message">Something just went wrong...</div>
+      return <FetchingMessage message={"Something just went wrong..."} />
     }
   }
 }
