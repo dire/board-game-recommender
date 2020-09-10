@@ -41,11 +41,13 @@ class Results extends React.Component {
                   <Box className="game-thumbnail" p={2}>
                     <img className="thumbnail" src={item.thumb_url} alt={item.name} />
                   </Box>
-                  <Box textAlign={{ xs: 'center', sm: 'left', md: "left" }}>
-                    <Box pr={1} display="inline">
-                      <Typography color="textSecondary" display="inline" fontSize="h6.fontSize">#{index + 1}</Typography>
+                  <Box>
+                    <Box textAlign={{ xs: 'center', sm: 'left', md: "left" }}>
+                      <Box pr={1} display="inline">
+                        <Typography color="textSecondary" display="inline" fontSize="h6.fontSize">#{index + 1}</Typography>
+                      </Box>
+                      <Typography display="inline" variant="h6" component="h2">{item.name}</Typography>
                     </Box>
-                    <Typography display="inline" variant="h6" component="h2">{item.name}</Typography>
                     <Box mt={2}>
                       <Paper>
                         <Box className="game-details" display="flex" py={1} px={2}>
@@ -77,7 +79,7 @@ class Results extends React.Component {
                       </AccordionSummary>
                       <AccordionDetails>
                         <Typography>
-                          <span className="game-description" dangerouslySetInnerHTML={{__html: item.description}}></span>
+                          <Box dangerouslySetInnerHTML={{__html: item.description}} pr={2}></Box>
                         </Typography>
                       </AccordionDetails>
                     </Accordion>

@@ -89,8 +89,10 @@ class RandomGame extends React.Component {
                 <Box className="game-thumbnail" p={2}>
                   <img className="thumbnail" src={game.thumb_url} alt={game.name} />
                 </Box>
-                <Box textAlign={{ xs: 'center', sm: 'left', md: "left" }}>
-                  <Typography display="inline" variant="h6" component="h2">{game.name}</Typography>
+                <Box>
+                  <Box textAlign={{ xs: 'center', sm: 'left', md: "left" }}>
+                    <Typography display="inline" variant="h6" component="h2">{game.name}</Typography>
+                  </Box>
                   <Box mt={2}>
                     <Paper>
                       <Box className="game-details" display="flex" py={1} px={2}>
@@ -122,7 +124,7 @@ class RandomGame extends React.Component {
                     </AccordionSummary>
                     <AccordionDetails>
                       <Typography>
-                        <span className="game-description" dangerouslySetInnerHTML={{__html: game.description}}></span>
+                        <Box dangerouslySetInnerHTML={{__html: game.description}} pr={2}></Box>
                       </Typography>
                     </AccordionDetails>
                   </Accordion>
