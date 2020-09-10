@@ -34,10 +34,6 @@ ul {
   border-bottom: 1px solid darkgray;
 }
 
-.result-item .game-info {
-  padding: 0 20px 20px 0;
-}
-
 .result-item .game-description {
   margin-top: 20px;
 }
@@ -74,9 +70,5 @@ h1 {
 
   .game-thumbnail {
     text-align: center;
-  }
-
-  .result-item .game-info {
-    padding-right: 0;
   }
 }

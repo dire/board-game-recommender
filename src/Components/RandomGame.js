@@ -89,7 +89,7 @@ class RandomGame extends React.Component {
                 <Box className="game-thumbnail" p={2}>
                   <img className="thumbnail" src={game.thumb_url} alt={game.name} />
                 </Box>
-                <div className="game-info">
+                <Box textAlign={{ xs: 'center', sm: 'left', md: "left" }}>
                   <Typography display="inline" variant="h6" component="h2">{game.name}</Typography>
                   <Box mt={2}>
                     <Paper>
@@ -162,7 +162,7 @@ class RandomGame extends React.Component {
                       </ul>
                     </AccordionDetails>
                   </Accordion>
-                </div>
+                </Box>
               </li>
             </ul>
           </div>

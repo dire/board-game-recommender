@@ -78,7 +78,7 @@ export default function TopBar(props) {
       <AppBar position="sticky">
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
-            Board Game Recommendations - Find the next game to play
+            Board Game Recommendations
           </Typography>
           <Button className={classes.topBarButton} color="inherit" onClick={selectActiveView} value="wizard"><TimelineIcon className={classes.menuIcon} />Simple</Button>
           <Button className={classes.topBarButton} color="inherit" onClick={selectActiveView} value="detailedSearch"><TuneIcon className={classes.menuIcon} />Detailed</Button>
