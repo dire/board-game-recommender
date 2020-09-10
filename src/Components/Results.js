@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
+import FetchingMessage from './FetchingMessage'
 
 class Results extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class Results extends React.Component {
     let categories = this.props.categories
 
     if (this.props.isFetching) {
-      return <Paper elevation={3} className="system-message">Fetching games from the shelf...</Paper>
+      return <FetchingMessage message={"Fetching games from the shelf.."} />
     } else {
       return (
         <div>

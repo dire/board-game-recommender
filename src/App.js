@@ -84,10 +84,6 @@ const AppWrapper = (props) => {
       '.MuiSlider-mark': {
         height: 4
       },
-      '.system-message': {
-        background: theme.palette.background.paper,
-        color: theme.palette.text.primary
-      }
     }
   })(() => null);
 
