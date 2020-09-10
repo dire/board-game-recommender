@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import DieIcon from '@material-ui/icons/Casino';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
 
 class RandomGame extends React.Component {
   constructor(props) {
@@ -80,35 +81,35 @@ class RandomGame extends React.Component {
                   <Typography display="inline" variant="h6" component="h2">{game.name}</Typography>
                   <Paper className="game-details">
                     <div className="game-detail">
-                      <Typography variant="subtitle2" display="block">MSRP:</Typography> ${game.msrp}
+                      <Box fontWeight={700}>MSRP:</Box> ${game.msrp}
                     </div>
                     <div className="game-detail">
-                      <Typography variant="subtitle2" display="block">Year:</Typography> {game.year_published}
+                      <Box fontWeight={700}>Year:</Box> {game.year_published}
                     </div>
                     <div className="game-detail">
-                      <Typography variant="subtitle2" display="block">Players:</Typography> {game.min_players} - {game.max_players}
+                      <Box fontWeight={700}>Players:</Box> {game.min_players} - {game.max_players}
                     </div>
                     <div className="game-detail">
-                      <Typography variant="subtitle2" display="block">Primary publisher:</Typography> {game.primary_publisher}
+                      <Box fontWeight={700}>Primary publisher:</Box> {game.primary_publisher}
                     </div>
                     <div className="game-detail">
-                      <Typography variant="subtitle2" display="block">Designers:</Typography> {game.designers.join(', ')}
+                      <Box fontWeight={700}>Designers:</Box> {game.designers.join(', ')}
                     </div>
                     <div className="game-detail">
-                      <Typography variant="subtitle2" display="block">Playtime:</Typography> {game.min_playtime} - {game.max_playtime} min
+                      <Box fontWeight={700}>Playtime:</Box> {game.min_playtime} - {game.max_playtime} min
                     </div>
                     <div className="game-detail">
-                      <Typography variant="subtitle2" display="block">Min age:</Typography> {game.min_age}
+                      <Box fontWeight={700}>Min age:</Box> {game.min_age}
                     </div>
                     <div className="game-detail">
-                      <Typography variant="subtitle2" display="block">Avg. rating:</Typography> {game.average_user_rating.toFixed(2)} ({game.num_user_ratings})
+                      <Box fontWeight={700}>Avg. rating:</Box> {game.average_user_rating.toFixed(2)} ({game.num_user_ratings})
                     </div>
                     <div className="game-detail">
-                      <Typography variant="subtitle2" display="block">
+                      <Box fontWeight={700}>
                         <Link href={game.url} target="_blank">
                           BGA Link
                         </Link>
-                      </Typography>
+                      </Box>
                     </div>
                   </Paper>
                   <Accordion defaultExpanded={true}>

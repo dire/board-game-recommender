@@ -43,35 +43,35 @@ class Results extends React.Component {
                     <Typography display="inline" variant="h6" component="h2">{item.name}</Typography>
                     <Paper className="game-details">
                       <div className="game-detail">
-                        <Typography variant="subtitle2" display="block">MSRP:</Typography> ${item.msrp}
+                        <Box fontWeight={700}>MSRP:</Box> ${item.msrp}
                       </div>
                       <div className="game-detail">
-                        <Typography variant="subtitle2" display="block">Year:</Typography> {item.year_published}
+                        <Box fontWeight={700}>Year:</Box> {item.year_published}
                       </div>
                       <div className="game-detail">
-                        <Typography variant="subtitle2" display="block">Players:</Typography> {item.min_players} - {item.max_players}
+                        <Box fontWeight={700}>Players:</Box> {item.min_players} - {item.max_players}
                       </div>
                       <div className="game-detail">
-                        <Typography variant="subtitle2" display="block">Primary publisher:</Typography> {item.primary_publisher}
+                        <Box fontWeight={700}>Primary publisher:</Box> {item.primary_publisher}
                       </div>
                       <div className="game-detail">
-                        <Typography variant="subtitle2" display="block">Designers:</Typography> {item.designers.join(', ')}
+                        <Box fontWeight={700}>Designers:</Box> {item.designers.join(', ')}
                       </div>
                       <div className="game-detail">
-                        <Typography variant="subtitle2" display="block">Playtime:</Typography> {item.min_playtime} - {item.max_playtime} min
+                        <Box fontWeight={700}>Playtime:</Box> {item.min_playtime} - {item.max_playtime} min
                       </div>
                       <div className="game-detail">
-                        <Typography variant="subtitle2" display="block">Min age:</Typography> {item.min_age}
+                        <Box fontWeight={700}>Min age:</Box> {item.min_age}
                       </div>
                       <div className="game-detail">
-                        <Typography variant="subtitle2" display="block">Avg. rating:</Typography> {item.average_user_rating.toFixed(2)} ({item.num_user_ratings})
+                        <Box fontWeight={700}>Avg. rating:</Box> {item.average_user_rating.toFixed(2)} ({item.num_user_ratings})
                       </div>
                       <div className="game-detail">
-                        <Typography variant="subtitle2" display="block">
+                        <Box fontWeight={700}>
                           <Link href={item.url} target="_blank">
                             BGA Link
                           </Link>
-                        </Typography>
+                        </Box>
                       </div>
                     </Paper>
                     <Accordion defaultExpanded={true}>
