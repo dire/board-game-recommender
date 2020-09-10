@@ -5,8 +5,8 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
 
 class Results extends React.Component {
   constructor(props) {
@@ -24,16 +24,6 @@ class Results extends React.Component {
     let mechanics = this.props.mechanics
     let categories = this.props.categories
 
-    const classes = makeStyles((theme) => ({
-      root: {
-        width: '100%',
-      },
-      heading: {
-        fontSize: theme.typography.pxToRem(15),
-        fontWeight: theme.typography.fontWeightRegular,
-      },
-    }));
-
     if (this.props.isFetching) {
       return <Paper elevation={3} className="system-message">Fetching games from the shelf...</Paper>
     } else {
@@ -47,7 +37,10 @@ class Results extends React.Component {
                     <img className="thumbnail" src={item.thumb_url} alt={item.name} />
                   </div>
                   <div className="game-info">
-                    <span className="result-number">#{index + 1}</span><h2 className="game-title">{item.name}</h2>
+                    <Box pr={1} display="inline">
+                      <Typography color="textSecondary" display="inline" fontSize="h6.fontSize">#{index + 1}</Typography>
+                    </Box>
+                    <h2 className="game-title">{item.name}</h2>
                     <div className="game-details">
                       <div className="game-detail">
                         <span className="detail-title">MSRP:</span> ${item.msrp}
@@ -87,7 +80,7 @@ class Results extends React.Component {
                         aria-controls="descriptionPanel-content"
                         id="descriptionPanel-header"
                       >
-                        <Typography className={classes.heading}>Description</Typography>
+                        <Typography>Description</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
                         <Typography>
@@ -101,7 +94,7 @@ class Results extends React.Component {
                         aria-controls="mechanicsPanel-content"
                         id="mechanicsPanel-header"
                       >
-                        <Typography className={classes.heading}>Mechanics</Typography>
+                        <Typography>Mechanics</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
                         <ul>
@@ -119,7 +112,7 @@ class Results extends React.Component {
                         aria-controls="categoryPanel-content"
                         id="categoryPanel-header"
                       >
-                        <Typography className={classes.heading}>Categories</Typography>
+                        <Typography>Categories</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
                         <ul>

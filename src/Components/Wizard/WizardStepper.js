@@ -166,7 +166,7 @@ export default function HorizontalLinearStepper(props) {
           </div>
         ) : (
           <div className={classes.wizardOptions}>
-            <Typography className={classes.instructions} variant="h3">{getStepContent(activeStep)}</Typography>
+            <Typography className={classes.instructions} variant="h3" component="h1">{getStepContent(activeStep)}</Typography>
             {activeStep === 0 &&
               <div className={classes.stepOptions}>
                 <WizardOptions step="playerCount" onSelect={updatePlayerCount} options={playerCountOptions} />
