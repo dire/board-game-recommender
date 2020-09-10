@@ -41,7 +41,7 @@ class Results extends React.Component {
                   <Box className="game-thumbnail" p={2}>
                     <img className="thumbnail" src={item.thumb_url} alt={item.name} />
                   </Box>
-                  <div className="game-info">
+                  <Box textAlign={{ xs: 'center', sm: 'left', md: "left" }}>
                     <Box pr={1} display="inline">
                       <Typography color="textSecondary" display="inline" fontSize="h6.fontSize">#{index + 1}</Typography>
                     </Box>
@@ -117,7 +117,7 @@ class Results extends React.Component {
                         </ul>
                       </AccordionDetails>
                     </Accordion>
-                  </div>
+                  </Box>
                 </li>
               ))}
             </ul>
