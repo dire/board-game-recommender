@@ -11,6 +11,9 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import FetchingMessage from './FetchingMessage'
+import DescriptionIcon from '@material-ui/icons/Description'
+import CategoryIcon from '@material-ui/icons/Category'
+import SettingsIcon from '@material-ui/icons/Settings'
 
 class RandomGame extends React.Component {
   constructor(props) {
@@ -126,7 +129,7 @@ class RandomGame extends React.Component {
                       aria-controls="descriptionPanel-content"
                       id="descriptionPanel-header"
                     >
-                      <Typography>Description</Typography>
+                      <Box mr={1}><DescriptionIcon /></Box><Typography>Description</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <Typography>
@@ -140,7 +143,7 @@ class RandomGame extends React.Component {
                       aria-controls="mechanicsPanel-content"
                       id="mechanicsPanel-header"
                     >
-                      <Typography>Mechanics</Typography>
+                      <Box mr={1}><SettingsIcon /></Box><Typography>Mechanics</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <ul>
@@ -158,7 +161,7 @@ class RandomGame extends React.Component {
                       aria-controls="categoryPanel-content"
                       id="categoryPanel-header"
                     >
-                      <Typography>Categories</Typography>
+                      <Box mr={1}><CategoryIcon /></Box><Typography>Categories</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <ul>
