@@ -1,13 +1,16 @@
 import React from 'react'
 import Link from '@material-ui/core/Link'
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
+import Accordion from '@material-ui/core/Accordion'
+import AccordionSummary from '@material-ui/core/AccordionSummary'
+import AccordionDetails from '@material-ui/core/AccordionDetails'
+import Typography from '@material-ui/core/Typography'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import Paper from '@material-ui/core/Paper'
+import Box from '@material-ui/core/Box'
 import FetchingMessage from './FetchingMessage'
+import DescriptionIcon from '@material-ui/icons/Description'
+import CategoryIcon from '@material-ui/icons/Category'
+import SettingsIcon from '@material-ui/icons/Settings'
 
 class Results extends React.Component {
   constructor(props) {
@@ -81,7 +84,7 @@ class Results extends React.Component {
                         aria-controls="descriptionPanel-content"
                         id="descriptionPanel-header"
                       >
-                        <Typography>Description</Typography>
+                        <Box mr={1}><DescriptionIcon /></Box><Typography>Description</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
                         <Typography>
@@ -95,7 +98,7 @@ class Results extends React.Component {
                         aria-controls="mechanicsPanel-content"
                         id="mechanicsPanel-header"
                       >
-                        <Typography>Mechanics</Typography>
+                        <Box mr={1}><SettingsIcon /></Box><Typography>Mechanics</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
                         <ul>
@@ -113,7 +116,7 @@ class Results extends React.Component {
                         aria-controls="categoryPanel-content"
                         id="categoryPanel-header"
                       >
-                        <Typography>Categories</Typography>
+                        <Box mr={1}><CategoryIcon /></Box><Typography>Categories</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
                         <ul>
