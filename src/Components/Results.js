@@ -8,17 +8,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Paper from '@material-ui/core/Paper'
 import Box from '@material-ui/core/Box'
 import FetchingMessage from './FetchingMessage'
+import GameDetail from './GameDetail'
 import DescriptionIcon from '@material-ui/icons/Description'
 import CategoryIcon from '@material-ui/icons/Category'
 import SettingsIcon from '@material-ui/icons/Settings'
-
-const GameDetail = (props) => {
-  return (
-  <Box className="game-detail" py={1} px={2}>
-    <Box fontWeight={700}>{props.title}</Box> {props.detail}
-  </Box>
-  )
-}
 
 class Results extends React.Component {
   constructor(props) {
