@@ -91,23 +91,27 @@ class RandomGame extends React.Component {
                 </Box>
                 <div className="game-info">
                   <Typography display="inline" variant="h6" component="h2">{game.name}</Typography>
-                  <Paper className="game-details">
-                    <GameDetail title={"MSRP"} detail={"$" + game.msrp} />
-                    <GameDetail title={"Year"} detail={game.year_published} />
-                    <GameDetail title={"Players"} detail={game.min_players + " - " + game.max_players} />
-                    <GameDetail title={"Primary publisher"} detail={game.primary_publisher} />
-                    <GameDetail title={"Designers"} detail={game.designers.join(', ')} />
-                    <GameDetail title={"Playtime"} detail={game.min_playtime + " - " + game.max_playtime} />
-                    <GameDetail title={"Min age"} detail={game.min_age} />
-                    <GameDetail title={"Avg. rating"} detail={game.average_user_rating.toFixed(2) + " (" + game.num_user_ratings + ")"} />
-                    <div className="game-detail">
-                      <Box fontWeight={700}>
-                        <Link href={game.url} target="_blank">
-                          BGA Link
-                        </Link>
+                  <Box mt={2}>
+                    <Paper>
+                      <Box className="game-details" display="flex" py={1} px={2}>
+                        <GameDetail title={"MSRP"} detail={"$" + game.msrp} />
+                        <GameDetail title={"Year"} detail={game.year_published} />
+                        <GameDetail title={"Players"} detail={game.min_players + " - " + game.max_players} />
+                        <GameDetail title={"Primary publisher"} detail={game.primary_publisher} />
+                        <GameDetail title={"Designers"} detail={game.designers.join(', ')} />
+                        <GameDetail title={"Playtime"} detail={game.min_playtime + " - " + game.max_playtime} />
+                        <GameDetail title={"Min age"} detail={game.min_age} />
+                        <GameDetail title={"Avg. rating"} detail={game.average_user_rating.toFixed(2) + " (" + game.num_user_ratings + ")"} />
+                        <Box className="game-detail" py={1} px={2}>
+                          <Box fontWeight={700}>
+                            <Link href={game.url} target="_blank">
+                              BGA Link
+                            </Link>
+                          </Box>
+                        </Box>
                       </Box>
-                    </div>
-                  </Paper>
+                    </Paper>
+                  </Box>
                   <Accordion defaultExpanded={true}>
                     <AccordionSummary
                       expandIcon={<ExpandMoreIcon />}
