@@ -8,6 +8,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import DieIcon from '@material-ui/icons/Casino';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
 class RandomGame extends React.Component {
   constructor(props) {
@@ -76,40 +77,40 @@ class RandomGame extends React.Component {
                   <img className="thumbnail" src={game.thumb_url} alt={game.name} />
                 </div>
                 <div className="game-info">
-                  <h2 className="game-title">{game.name}</h2>
-                  <div className="game-details">
+                  <Typography display="inline" variant="h6" component="h2">{game.name}</Typography>
+                  <Paper className="game-details">
                     <div className="game-detail">
-                      <span className="detail-title">MSRP:</span> ${game.msrp}
+                      <Typography variant="subtitle2" display="block">MSRP:</Typography> ${game.msrp}
                     </div>
                     <div className="game-detail">
-                      <span className="detail-title">Year:</span> {game.year_published}
+                      <Typography variant="subtitle2" display="block">Year:</Typography> {game.year_published}
                     </div>
                     <div className="game-detail">
-                      <span className="detail-title">Players:</span> {game.min_players} - {game.max_players}
+                      <Typography variant="subtitle2" display="block">Players:</Typography> {game.min_players} - {game.max_players}
                     </div>
                     <div className="game-detail">
-                      <span className="detail-title">Primary publisher:</span> {game.primary_publisher}
+                      <Typography variant="subtitle2" display="block">Primary publisher:</Typography> {game.primary_publisher}
                     </div>
                     <div className="game-detail">
-                      <span className="detail-title">Designers:</span> {game.designers.join(', ')}
+                      <Typography variant="subtitle2" display="block">Designers:</Typography> {game.designers.join(', ')}
                     </div>
                     <div className="game-detail">
-                      <span className="detail-title">Playtime:</span> {game.min_playtime} - {game.max_playtime} min
+                      <Typography variant="subtitle2" display="block">Playtime:</Typography> {game.min_playtime} - {game.max_playtime} min
                     </div>
                     <div className="game-detail">
-                      <span className="detail-title">Min age:</span> {game.min_age}
+                      <Typography variant="subtitle2" display="block">Min age:</Typography> {game.min_age}
                     </div>
                     <div className="game-detail">
-                      <span className="detail-title">Avg. rating:</span> {game.average_user_rating.toFixed(2)} ({game.num_user_ratings})
+                      <Typography variant="subtitle2" display="block">Avg. rating:</Typography> {game.average_user_rating.toFixed(2)} ({game.num_user_ratings})
                     </div>
                     <div className="game-detail">
-                      <span className="detail-title">
+                      <Typography variant="subtitle2" display="block">
                         <Link href={game.url} target="_blank">
                           BGA Link
                         </Link>
-                      </span>
+                      </Typography>
                     </div>
-                  </div>
+                  </Paper>
                   <Accordion defaultExpanded={true}>
                     <AccordionSummary
                       expandIcon={<ExpandMoreIcon />}

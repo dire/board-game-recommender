@@ -40,40 +40,40 @@ class Results extends React.Component {
                     <Box pr={1} display="inline">
                       <Typography color="textSecondary" display="inline" fontSize="h6.fontSize">#{index + 1}</Typography>
                     </Box>
-                    <h2 className="game-title">{item.name}</h2>
-                    <div className="game-details">
+                    <Typography display="inline" variant="h6" component="h2">{item.name}</Typography>
+                    <Paper className="game-details">
                       <div className="game-detail">
-                        <span className="detail-title">MSRP:</span> ${item.msrp}
+                        <Typography variant="subtitle2" display="block">MSRP:</Typography> ${item.msrp}
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Year:</span> {item.year_published}
+                        <Typography variant="subtitle2" display="block">Year:</Typography> {item.year_published}
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Players:</span> {item.min_players} - {item.max_players}
+                        <Typography variant="subtitle2" display="block">Players:</Typography> {item.min_players} - {item.max_players}
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Primary publisher:</span> {item.primary_publisher}
+                        <Typography variant="subtitle2" display="block">Primary publisher:</Typography> {item.primary_publisher}
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Designers:</span> {item.designers.join(', ')}
+                        <Typography variant="subtitle2" display="block">Designers:</Typography> {item.designers.join(', ')}
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Playtime:</span> {item.min_playtime} - {item.max_playtime} min
+                        <Typography variant="subtitle2" display="block">Playtime:</Typography> {item.min_playtime} - {item.max_playtime} min
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Min age:</span> {item.min_age}
+                        <Typography variant="subtitle2" display="block">Min age:</Typography> {item.min_age}
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">Avg. rating:</span> {item.average_user_rating.toFixed(2)} ({item.num_user_ratings})
+                        <Typography variant="subtitle2" display="block">Avg. rating:</Typography> {item.average_user_rating.toFixed(2)} ({item.num_user_ratings})
                       </div>
                       <div className="game-detail">
-                        <span className="detail-title">
+                        <Typography variant="subtitle2" display="block">
                           <Link href={item.url} target="_blank">
                             BGA Link
                           </Link>
-                        </span>
+                        </Typography>
                       </div>
-                    </div>
+                    </Paper>
                     <Accordion defaultExpanded={true}>
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
