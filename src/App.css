@@ -39,19 +39,6 @@ ul {
   border-radius: 4px;
 }
 
-.random-container {
-  margin-top: 2em;
-}
-
-.random-container h3 {
-  text-align: center;
-}
-
-.button-random {
-  margin-top: 2em;
-  text-align: center;
-}
-
 @media only screen and (max-width: 600px) {
   .result-item {
     flex-direction: column;

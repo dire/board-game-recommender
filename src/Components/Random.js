@@ -1,7 +1,8 @@
 import React from 'react'
 import RandomGame from './RandomGame'
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
+import Box from '@material-ui/core/Box'
 
 class Random extends React.Component {
   constructor(props) {
@@ -20,13 +21,11 @@ class Random extends React.Component {
   render() {
     if (this.props.activeView === 'random') {
       return (
-        <Grid className="random-container" container justify="center">
-          <Grid container justify="center">
+        <Grid container justify="center">
+          <Box mt={3} textAlign="center">
             <Typography variant="h3">Find a random game</Typography>
-          </Grid>
-          <Grid container justify="center">
             <Typography variant="h4" color="textSecondary">Let the dice decide</Typography>
-          </Grid>
+          </Box>
           <RandomGame mechanics={this.props.mechanics} categories={this.props.categories} />
         </Grid>
       )

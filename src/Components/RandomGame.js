@@ -73,14 +73,16 @@ class RandomGame extends React.Component {
         <div>
           <Grid className="button-random" container>
             <Grid item xs={12}>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => { this.getRandomGame() }}
-                startIcon={<DieIcon />}
-              >
-                <Typography>Get random game</Typography>
-              </Button>
+              <Box mt={3} textAlign="center">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => { this.getRandomGame() }}
+                  startIcon={<DieIcon />}
+                >
+                  <Typography>Get random game</Typography>
+                </Button>
+                </Box>
             </Grid>
           </Grid>
           <div className="results">
