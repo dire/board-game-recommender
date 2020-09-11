@@ -89,6 +89,16 @@ const AppWrapper = (props) => {
       },
       '.MuiToggleButton-root.Mui-selected': {
         color: "#fff"
+      },
+      'fieldset': {
+        padding: '20px',
+        margin: '20px',
+        border: '1px solid lightgray',
+        borderRadius: '4px'
+      },
+      '.thumbnail': {
+        maxWidth: '175px',
+        height: 'auto'
       }
     }
   })(() => null);
