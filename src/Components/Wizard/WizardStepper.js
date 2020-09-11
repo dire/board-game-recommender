@@ -29,6 +29,9 @@ const useStyles = makeStyles(theme => ({
   stepOptions: {
     margin: '50px 0',
   },
+  stepper: {
+    backgroundColor: theme.palette.background.paper,
+  }
 }));
 
 function getSteps() {
@@ -143,7 +146,7 @@ export default function HorizontalLinearStepper(props) {
 
   return (
     <div className={classes.root}>
-      <Stepper activeStep={activeStep}>
+      <Stepper className={classes.stepper} activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {}
           const labelProps = {}

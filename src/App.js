@@ -11,7 +11,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import { withStyles, withTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import teal from '@material-ui/core/colors/teal';
-import blue from '@material-ui/core/colors/blue';
+import cyan from '@material-ui/core/colors/cyan';
 import Box from '@material-ui/core/Box';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -31,9 +31,9 @@ const AppWrapper = (props) => {
           },
           secondary: {
             //light: will be calculated from palette.secondary.main,
-            main: blue[700],
+            main: cyan[700],
             // dark: will be calculated from palette.secondary.main,
-            contrastText: '#ffcc00',
+            //contrastText: will be calculated to contrast with palette.secondary.main,
           },
           // Used by `getContrastText()` to maximize the contrast between
           // the background and the text.
@@ -102,7 +102,7 @@ const AppWrapper = (props) => {
       },
       '.MuiLink-underlineHover': {
         textDecoration: 'underline',
-        color: teal['A100']
+        color: prefersDarkMode ? teal['A100'] : teal[700]
       }
     }
   })(() => null);
