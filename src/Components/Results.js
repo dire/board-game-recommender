@@ -61,8 +61,8 @@ class Results extends React.Component {
                           <GameDetail title={"Avg. rating"} detail={item.average_user_rating.toFixed(2) + " (" + item.num_user_ratings + ")"} />
                           <Box className="game-detail" py={1} px={2}>
                             <Box fontWeight={700}>
-                              <Link href={item.url} target="_blank">
-                                BGA Link
+                              <Link href={item.url} target="_blank" aria-label={item.name + " page in Board Game Atlas"}>
+                                BGA link
                               </Link>
                             </Box>
                           </Box>
@@ -72,8 +72,8 @@ class Results extends React.Component {
                     <Accordion defaultExpanded={true}>
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
-                        aria-controls="descriptionPanel-content"
-                        id="descriptionPanel-header"
+                        aria-controls={"descriptionPanel-content-" + index}
+                        id={"descriptionPanel-header-" + index}
                       >
                         <Box mr={1}><DescriptionIcon /></Box><Typography>Description</Typography>
                       </AccordionSummary>
@@ -86,8 +86,8 @@ class Results extends React.Component {
                     <Accordion>
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
-                        aria-controls="mechanicsPanel-content"
-                        id="mechanicsPanel-header"
+                        aria-controls={"mechanicsPanel-content-" + index}
+                        id={"mechanicsPanel-header-" + index}
                       >
                         <Box mr={1}><SettingsIcon /></Box><Typography>Mechanics</Typography>
                       </AccordionSummary>
@@ -104,8 +104,8 @@ class Results extends React.Component {
                     <Accordion>
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
-                        aria-controls="categoryPanel-content"
-                        id="categoryPanel-header"
+                        aria-controls={"categoryPanel-content-" + index}
+                        id={"categoryPanel-header-" + index}
                       >
                         <Box mr={1}><CategoryIcon /></Box><Typography>Categories</Typography>
                       </AccordionSummary>
