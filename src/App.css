@@ -8,25 +8,6 @@ ul {
   min-height: 50vh;
 }
 
-.search-filters fieldset {
-  padding: 20px;
-  margin: 20px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
-}
-
-.sort-section {
-  border: 1px solid lightgray;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.results .thumbnail {
-  max-width: 175px;
-  height: auto;
-}
-
 .result-item {
   display: flex;
   padding: 20px 0;
