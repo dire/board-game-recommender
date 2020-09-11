@@ -10,11 +10,12 @@ Game data is fetched from [Board Game Atlas API](https://www.boardgameatlas.com/
 - [ ] Add more sorting options
 - [x] Make it prettier
 - [ ] Make it even prettier
-- [X] Search for a random game
+- [x] Search for a random game
 - [x] Wizard style search
-- [X] Show more game info, e.g. list all mechanics, categories
+- [x] Show more game info, e.g. list all mechanics, categories
 - [ ] Limit the description length and maybe hide rest behind accordion or read more button/link
-- [ ] Refactor things.. again. Bunch of duplicated and heavy code as result of "Make it work, fix later"
+- [x] Refactor things.. again. Bunch of duplicated and heavy code as result of "Make it work, fix later"
+- [ ] Refactor things.. even more! We're on good path after the first batch of changes.
 - [ ] ...
 
 ## Setup local
