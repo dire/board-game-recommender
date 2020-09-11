@@ -108,9 +108,9 @@ class RandomGame extends React.Component {
                         <GameDetail title={"Avg. rating"} detail={game.average_user_rating.toFixed(2) + " (" + game.num_user_ratings + ")"} />
                         <Box className="game-detail" py={1} px={2}>
                           <Box fontWeight={700}>
-                            <Link href={game.url} target="_blank">
-                              BGA Link
-                            </Link>
+                          <Link href={game.url} target="_blank" aria-label={game.name + " page in Board Game Atlas"}>
+                            BGA link
+                          </Link>
                           </Box>
                         </Box>
                       </Box>

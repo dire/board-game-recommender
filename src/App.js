@@ -25,13 +25,13 @@ const AppWrapper = (props) => {
           type: prefersDarkMode ? 'dark' : 'light',
           primary: {
             // light: will be calculated from palette.primary.main,
-            main: teal[500],
+            main: teal[700],
             // dark: will be calculated from palette.primary.main,
             // contrastText: will be calculated to contrast with palette.primary.main
           },
           secondary: {
             //light: will be calculated from palette.secondary.main,
-            main: blue[500],
+            main: blue[700],
             // dark: will be calculated from palette.secondary.main,
             contrastText: '#ffcc00',
           },
@@ -99,6 +99,10 @@ const AppWrapper = (props) => {
       '.thumbnail': {
         maxWidth: '175px',
         height: 'auto'
+      },
+      '.MuiLink-underlineHover': {
+        textDecoration: 'underline',
+        color: teal['A100']
       }
     }
   })(() => null);
