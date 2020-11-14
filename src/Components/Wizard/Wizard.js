@@ -27,7 +27,7 @@ class Wizard extends React.Component {
 
   getGames (playerCount, playTime, theme) {
     let playerCountParameter = ''
-    let categories = theme ? 'categories=' + theme : '';
+    let categories = theme ? 'categories=' + theme : 'categories=cAIkk5aLdQ';
 
     if (!playTime) {
       playTime = 9999
