@@ -101,7 +101,7 @@ class RandomGame extends React.Component {
                         <GameDetail title={"MSRP"} detail={"$" + game.msrp} />
                         <GameDetail title={"Year"} detail={game.year_published} />
                         <GameDetail title={"Players"} detail={game.min_players + " - " + game.max_players} />
-                        <GameDetail title={"Primary publisher"} detail={game.primary_publisher} />
+                        {game.primary_publisher ? <GameDetail title={"Primary publisher"} detail={game.primary_publisher.name} /> : null }
                         <GameDetail title={"Designers"} detail={game.designers.join(', ')} />
                         <GameDetail title={"Playtime"} detail={game.min_playtime + " - " + game.max_playtime} />
                         <GameDetail title={"Min age"} detail={game.min_age} />
