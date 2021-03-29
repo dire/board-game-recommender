@@ -55,7 +55,7 @@ class Results extends React.Component {
                           <GameDetail title={"Year"} detail={item.year_published} />
                           <GameDetail title={"Players"} detail={item.min_players + " - " + item.max_players} />
                           {item.primary_publisher ? <GameDetail title={"Primary publisher"} detail={item.primary_publisher.name} /> : null }
-                          <GameDetail title={"Designer"} detail={item.primary_designer.name} />
+                          {item.primary_designer ? <GameDetail title={"Designer"} detail={item.primary_designer.name} /> : null }
                           <GameDetail title={"Playtime"} detail={item.min_playtime + " - " + item.max_playtime} />
                           <GameDetail title={"Min age"} detail={item.min_age} />
                           <GameDetail title={"Avg. rating"} detail={item.average_user_rating.toFixed(2) + " (" + item.num_user_ratings + ")"} />
