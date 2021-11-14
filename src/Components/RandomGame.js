@@ -85,7 +85,7 @@ class RandomGame extends React.Component {
                 </Box>
             </Grid>
           </Grid>
-          <div className="results">
+          <div className="results results__random">
             <ul>
               <li className="result-item" key={game.id}>
                 <Box className="game-thumbnail" p={2}>

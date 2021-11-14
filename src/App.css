@@ -10,9 +10,6 @@ ul {
 
 .result-item {
   display: flex;
-  padding: 20px 0;
-  margin: 10px 0;
-  border-bottom: 1px solid darkgray;
 }
 
 .game-details {
