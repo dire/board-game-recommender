@@ -97,8 +97,8 @@ const AppWrapper = (props) => {
         borderRadius: '4px'
       },
       '.thumbnail': {
-        maxWidth: '175px',
-        height: 'auto'
+        width: 'auto',
+        height: '175px'
       },
       '.MuiLink-underlineHover': {
         textDecoration: 'underline',
